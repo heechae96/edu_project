@@ -38,6 +38,7 @@
 	</bean>
 	
 	<!-- 매퍼 인터페이스 빈으로 등록 -->
-	<mybatis-spring:scan base-package="com.myuser.user"/>
+	<mybatis-spring:scan base-package="com.myproject.myproject.edu_class"/>
+	<mybatis-spring:scan base-package="com.myproject.myproject.edu_user"/>
 	
 </beans>
