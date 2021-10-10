@@ -1,0 +1,18 @@
+@charset "UTF-8";
+#full{
+	text-align: center;
+	color : pink;
+}
+.logo_img{
+    width:400px;
+    height:200px;
+    border: 1px solid black;
+    margin : auto;
+    text-align: center;
+}
+#join,#add{
+	margin: 10px 20px;
+}
+#btn1{
+	margin-left: 650px;
+}
