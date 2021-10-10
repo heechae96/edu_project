@@ -19,7 +19,8 @@ public class UserController {
 	// 메인 페이지로 이동
 	@GetMapping("main")
 	public String userMain() {
-		logger.info("메인 페이지로 이동");	
+		logger.info("메인 페이지로 이동");
+		System.out.println("메인 페이지로 이동");
 		return "main";
 	}
 	
@@ -27,6 +28,7 @@ public class UserController {
 	@GetMapping("join")
 	public String userJoin() {
 		logger.info("회원가입 페이지로 이동");	
+		System.out.println("회원가입 페이지로 이동");
 		return "join";
 	}
 	
@@ -34,6 +36,7 @@ public class UserController {
 	@GetMapping("login")
 	public String userLogin() {	
 		logger.info("로그인 페이지로 진입");
+		System.out.println("로그인 페이지로 진입");
 		return "login";
 	}
 	
@@ -41,12 +44,14 @@ public class UserController {
 	@GetMapping("add")
 	public String userAdd() {
 		logger.info("추가 페이지로 진입");
+		System.out.println("추가 페이지로 진입");
 		return "add";
 	}
 	// 시작 페이지로 이동
 	@GetMapping("start")
 	public String userStart() {
 		logger.info("시작 페이지로 진입");
+		System.out.println("시작 페이지로 진입");
 		return "start";
 	}
 }
