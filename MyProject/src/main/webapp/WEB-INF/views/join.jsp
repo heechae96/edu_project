@@ -5,7 +5,8 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-</head>
+<!-- css를 적용한것! -->
+<link href="/resources/css/join.css" rel="stylesheet">
 <script type="text/javascript">
 	window.addEventListener("DOMContentLoaded", function() {
 		var btn_ok = document.querySelector(".ok");
@@ -14,16 +15,29 @@
 		}
 	}
 </script>
+</head>
 <body>
 	<h1>회원가입을 통해 서비스를 이용하세요</h1>
-	<form action="/user/input" method="post">
-		<input type="text" name="userId" placeholder="아이디">
-		<button class="ok">중복확인</button><br>
-		<input type="password" name="password" placeholder="비밀번호"><br>
-		<input type="text" name="classNumber" placeholder="학번"><br>
-		<input type="text" name="userName" placeholder="이름"><br>
-		<input type="text" name="classYear" placeholder="학년"><br>		
+	<form action="/user/?" method="post">
+		
+		<label>아이디</label>
+		<input type="text" name="userId" placeholder="qwer1234">
+		<button class="ok">중복확인</button><br><br>
+		
+		<label>비밀번호</label>
+		<input type="password" name="password" placeholder="zxcv1234"><br><br>
+		
+		<label>이름</label>
+		<input type="text" name="userName" placeholder="홍길동"><br><br>
+		
+		<label>학번</label>
+		<input type="text" name="classNumber" placeholder="60181234"><br><br>
+			
+		<label>학년</label>
+		<input type="text" name="classYear" placeholder="4"><br><br>
+				
 		<input type="submit" value="가입하기">
+		
 	</form>
 </body>
 </html>
