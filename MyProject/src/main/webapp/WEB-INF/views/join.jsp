@@ -26,7 +26,7 @@
 		<input type="text" name="classNumber" placeholder="60181234"><br><br>
 			
 		<label>학년</label>
-		<input type="text" name="classYear" placeholder="4"><br><br>
+		<input type="text" name="userYear" placeholder="4"><br><br>
 				
 		<input type="submit" value="가입하기">
 		

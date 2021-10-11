@@ -34,6 +34,7 @@ public class UserController {
 	}
 	
 	// 회원가입
+	// 위랑 파라미터가 다르기 때문에 상관x
 	@PostMapping("join")
 	public String userJoin(User user) {
 		logger.info("메인 페이지로 이동");
