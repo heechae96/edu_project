@@ -10,7 +10,7 @@
 </head>
 <body>
 	<h1>회원가입을 통해 서비스를 이용하세요</h1>
-	<form action="/user/join" method="post">
+	<form action="/edu_user/join" method="post">
 		
 		<label>아이디</label>
 		<input type="text" name="userId" placeholder="qwer1234">
