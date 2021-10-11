@@ -5,6 +5,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
@@ -30,6 +31,21 @@ public class UserController {
 		logger.info("회원가입 페이지로 이동");	
 		System.out.println("회원가입 페이지로 이동");
 		return "join";
+	}
+	
+	// 회원가입
+	@PostMapping("join")
+	public String userJoin(User user) {
+		logger.info("메인 페이지로 이동");
+		System.out.println("메인 페이지로 이동");
+		
+		// 회원가입 서비스 실행
+		userService.insertUser(user);
+		
+		logger.info("회원가입 서비스 성공");
+		System.out.println("회원가입 서비스 성공");
+		
+		return "main";	
 	}
 	
 	//로그인 페이지 이동

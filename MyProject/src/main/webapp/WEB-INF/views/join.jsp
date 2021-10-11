@@ -6,19 +6,11 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <!-- css를 적용한것! -->
-<link href="/resources/css/join.css" rel="stylesheet">
-<script type="text/javascript">
-	window.addEventListener("DOMContentLoaded", function() {
-		var btn_ok = document.querySelector(".ok");
-		btn_ok.onclick = function() {
-			location.href = "/edu_user/join_ok"	
-		}
-	}
-</script>
+<link href="/resources/css/user/join.css" rel="stylesheet">
 </head>
 <body>
 	<h1>회원가입을 통해 서비스를 이용하세요</h1>
-	<form action="/user/?" method="post">
+	<form action="/user/join" method="post">
 		
 		<label>아이디</label>
 		<input type="text" name="userId" placeholder="qwer1234">

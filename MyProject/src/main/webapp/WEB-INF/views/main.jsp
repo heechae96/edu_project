@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <title>main.jsp</title>
 <!-- css를 적용한것! -->
-<link href="/resources/css/mian.css" rel="stylesheet">
+<link href="/resources/css/user/main.css" rel="stylesheet">
 <script type="text/javascript">
 	window.addEventListener("DOMContentLoaded", function() {
 		// 회원가입

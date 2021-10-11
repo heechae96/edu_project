@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <!-- css를 적용한것! -->
-<link href="/resources/css/login.css" rel="stylesheet">
+<link href="/resources/css/user/login.css" rel="stylesheet">
 </head>
 <body>
 	<h1>로그인을 통해 서비스를 이용하세요</h1>
