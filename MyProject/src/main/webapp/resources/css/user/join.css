@@ -1,1 +1,12 @@
 @charset "UTF-8";
+/* 중복아이디 존재하지 않는경우 */
+.id_ok{
+	color : green;
+	display : none;
+}
+
+/* 중복아이디 존재하는 경우 */
+.id_not_ok{
+	color : red;
+	display : none;
+}

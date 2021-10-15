@@ -9,6 +9,7 @@ public class UserService {
 	@Autowired
 	private UserMapper userMapper;
 	
+	// 회원가입
 	public String insertUser(User user) {
 			
 			System.out.println("디비 삽입 전 user객체");
@@ -25,4 +26,19 @@ public class UserService {
 				return "삽입 실패";
 			}
 		}
+	
+	// 아이디 중복 검사
+	public int userIdChk(String userId) {
+		return userMapper.userIdChk(userId);
+	}
+	
+	
+	// 로그인
+	public User userLogin(User user) {
+		
+		return userMapper.userLogin(user);
+		
+	}
+
+	
 }

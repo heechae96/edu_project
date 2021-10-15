@@ -1,5 +1,8 @@
 package com.myproject.myproject.edu_user;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
@@ -51,12 +55,63 @@ public class UserController {
 		return "redirect:main";	
 	}
 	
+	// 아이디 중복 검사
+	// 성공 여부를 확인하기 위해 produces = "application/text; charset=utf8" 추가했다!
+	@PostMapping(value = "userIdChk", produces = "application/text; charset=utf8")
+	@ResponseBody	// join.jsp로 메서드의 결과를 반환하기 위함
+	public String userIdChk(String userId) {
+		logger.info("유저 체크");
+		System.out.println("유저 체크");
+		
+		int result = userService.userIdChk(userId);
+		
+		logger.info("결과값 : " + result);
+		System.out.println("결과값 : " + result);
+		
+		if(result != 0) {
+			System.out.println("실패");
+			return "실패";	// 중복 아이디가 존재
+			
+		} else {
+			System.out.println("성공");
+			return "성공";	// 중복 아이디 x
+			
+		}
+	}
+	
+	
+	
+	
+	
+	
 	//로그인 페이지 이동
 	@GetMapping("login")
 	public String userLogin() {	
 		logger.info("로그인 페이지로 진입");
 		System.out.println("로그인 페이지로 진입");
 		return "login";
+	}
+	
+	// 로그인
+	@PostMapping("login")
+	public String loginPost(HttpServletRequest req, User user , RedirectAttributes re) {
+		
+		System.out.println("로그인 메소드");
+		System.out.println("전달된 데이터: "+user);
+		
+		HttpSession session = req.getSession();
+		User new_user = userService.userLogin(user);
+		
+		if(new_user == null) {	// 일치하지 않는 아이디, 비밀번호 입력 경우		                                   
+            int result = 0;
+            re.addFlashAttribute("result", result);
+            return "redirect:/edu_user/login";           
+        }
+        
+        session.setAttribute("user", new_user);	// 일치하는 아이디, 비밀번호 경우 (로그인 성공)             
+        
+        return "redirect:/edu_user/main";		
+		
 	}
 	
 	// 추가 페이지로 이동
