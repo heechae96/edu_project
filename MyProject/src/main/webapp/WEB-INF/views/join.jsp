@@ -69,8 +69,8 @@ $(".userId").on("propertychange change keyup paste input", function(){
 			}
 		}
 	}); 
-
 });
+
 </script>
 </body>
 </html>

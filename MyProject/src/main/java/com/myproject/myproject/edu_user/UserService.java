@@ -39,6 +39,11 @@ public class UserService {
 		return userMapper.userLogin(user);
 		
 	}
+	
+	// 비밀번호 조회
+	public int userPwChk(String userPw) {
+		return userMapper.pwChk(userPw);
+	} 
 
 	
 }

@@ -31,17 +31,23 @@
 	</form>
 <script>
 
-	// 로그인 버튼
-	$(".login_btn").click(function(){
-		// alert("로그인 버튼 작동")
-		
-		// 로그인 메소드 서버 요청
-		$("#login_form").attr("action", "/edu_user/login");
-		$("#login_form").submit();
-		
-	});
+// 로그인 버튼
+$(".login_btn").click(function(){
+	// alert("로그인 버튼 작동")
 	
-	// 비밀번호 조회 버튼	
+	// 로그인 메소드 서버 요청
+	$("#login_form").attr("action", "/edu_user/login");
+	$("#login_form").submit();
+	
+});
+
+// 비밀번호 조회 버튼	
+// 페이지 이동!!
+$(".pw_btn").click(function(){
+	// alert("비밀번호 조회 버튼 작동");
+	location.href = "/edu_user/pwChk";
+
+});
 </script>
 </body>
 </html>

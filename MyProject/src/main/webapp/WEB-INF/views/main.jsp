@@ -49,7 +49,8 @@
             <!-- 로그인한 상태 -->
             <c:if test="${ user != null }">
 	            <div class="login_success_area">
-	                <span>아이디 : ${user.userId}</span>
+	                <span>${user.userName}님</span><br>
+	                <a href="/edu_user/logout">로그아웃</a>
 	            </div>
         	</c:if>
 			

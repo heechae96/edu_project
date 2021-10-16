@@ -78,12 +78,7 @@ public class UserController {
 			
 		}
 	}
-	
-	
-	
-	
-	
-	
+		
 	//로그인 페이지 이동
 	@GetMapping("login")
 	public String userLogin() {	
@@ -99,6 +94,7 @@ public class UserController {
 		System.out.println("로그인 메소드");
 		System.out.println("전달된 데이터: "+user);
 		
+		// 로그인이 되었다는 것은 세션에 사용자의 정보를 저장하였다는 의미!
 		HttpSession session = req.getSession();
 		User new_user = userService.userLogin(user);
 		
@@ -112,6 +108,67 @@ public class UserController {
         
         return "redirect:/edu_user/main";		
 		
+	}
+	
+	// 비밀번호 페이지로 이동
+	// ★PwChk: 주소 password: jsp명
+	@GetMapping("pwChk")
+	public String userPwChk() {	
+		logger.info("로그인 페이지로 진입");
+		System.out.println("로그인 페이지로 진입");
+		return "password";
+	}
+	
+	// 비밀번호 찾기
+	@PostMapping(value = "pwChk", produces = "application/text; charset=utf8")
+	@ResponseBody	// password.jsp로 메서드의 결과를 반환하기 위함
+	public String userPwChk(String userPw) {
+		logger.info("유저 체크");
+		System.out.println("유저 체크");
+		
+		int result = userService.userPwChk(userPw);
+		
+		logger.info("결과값 : " + result);
+		System.out.println("결과값 : " + result);
+		
+		if(result != 0) {
+			System.out.println("실패");
+			return "실패";	// 해당 DB 존재 x
+			
+		} else {
+			System.out.println("성공");
+			return "성공";	// 해당 DB 존재
+			
+		}
+	}
+	
+	// 비밀번호 제공 페이지
+	@GetMapping("okpw")
+	public String okpw() {	
+		logger.info("비밀번호 제공 페이지 진입");
+		System.out.println("비밀번호 제공 페이지 진입");
+		return "find_pw";
+	}
+	
+	
+	
+	
+	
+	
+	
+	// 로그아웃
+	@GetMapping("logout")
+	public String userLogout(HttpServletRequest req) {	
+		logger.info("로그아웃");
+		System.out.println("로그아웃");
+		
+		// 로그아웃은 세션에 저장되어 있는 사용자의 정보를 지우는 작업을 의미!
+		HttpSession session = req.getSession();
+		
+		// 세션 전체를 무효화
+		session.invalidate();
+		
+		return "redirect:/edu_user/main";	
 	}
 	
 	// 추가 페이지로 이동
