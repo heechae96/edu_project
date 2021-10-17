@@ -23,44 +23,47 @@
 			
 			<label>이름</label>
 			<input type="text" class="userName" name="userName" placeholder="홍길동"><br><br>
-			
-			<input type="button" class="real" value="존재?">			
-			<input type="button" class="pw_btn" value="비밀번호 조회">	
+						
+			<input type="button" class="pw_btn" value="비밀번호 조회">
 		
 		</form>
 <script>
 
-// 비밀번호 조회 버튼
-$(document).ready(function(){
-	// 비밀번호 조회 작동
-	$(".pw_btn").click(function(){
-		$("#pw_form").attr("action","/edu_user/pwChk");
-		$("#pw_form").submit();
-	})
-});
-
 //비밀번호 조회 버튼	
-$(".real").on("propertychange change keyup paste input", function(){
-	// alert("비밀번호 조회 버튼 작동")
+$(".pw_btn").click(function(){
+	
+	$("#pw_form").attr("action","/edu_user/pwChk");
+	$("#pw_form").submit();
+		
 	var userId = $('.userId').val();
 	var classNumber = $('.classNumber').val();
 	var userName = $('.userName').val();
-	var data = {userDB : userDB}				
+	
+	// 한개의 객체로..
+	// var userDb = [userId, classNumber, userName];
+	
+	// key value..
+	// var data = {userDb : userDb}				
 	
 	$.ajax({
 		type : "post",
 		url : "/edu_user/pwChk",
-		data : data,
+		data : {
+			// 한개의 객체로 -> 키 와 값
+			userId : userId,
+			classNumber : classNumber,
+			userName : userName
+		},
 		success : function(result){
 			console.log("성공 여부 : " + result);
-			if(result != '실패'){
+			if(result != "no"){				
 				location.href = "/edu_user/okpw";
-								
-			} else {
-				alert("조회된 정보가 없습니다. 다시 입력하세요");				
+			} else {	
+				alert("존재하지 않는 정보입니다.\n다시한번 확인해주세요.");
 			}
 		}
-	});
+	}); 
+	
 
 });
 </script>

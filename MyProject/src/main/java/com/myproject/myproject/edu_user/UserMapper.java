@@ -2,6 +2,7 @@ package com.myproject.myproject.edu_user;
 
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 
 @Mapper
@@ -19,13 +20,20 @@ public interface UserMapper {
 	// 로그인
 	// 아이디랑 비밀번호만 받는다!
 	// ★이름은 조회만 되는것!!★
-	@Select("select user_id, password, user_name from edu_user where user_id=#{userId} and password=#{password}")
+	// @Select("select user_id, password, user_name from edu_user where user_id=#{userId} and password=#{password}")
+	@Select("select user_name from edu_user where user_id=#{userId} and password=#{password}")
 	public User userLogin(User user);
 	
 	// 비밀번호 조회
+	// 해당 db가 존재하는지..
+	// Mybatis의 SQL 문장에 다수의 파라미터를 전달할 때는 전달되는 변수들에 꼭 @Param 어노테이션을 붙여줘야한다.
 	@Select("select count(*) from edu_user where user_id=#{userId} and class_number=#{classNumber} and user_name=#{userName}")
-	public int pwChk(String userPw);
+	public int pwChk(@Param("userId") String userId, @Param("classNumber") String classNumber, @Param("userName") String userName);
 	
+	// 비밀번호 제공
+	// 비밀번호는 조회만 된다!
+	@Select("select password from edu_user where user_id=#{userId} and class_number=#{classNumber} and user_name=#{userName}")
+	public User pwPost(User user);
 	
 	
 }

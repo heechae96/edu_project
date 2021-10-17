@@ -41,9 +41,15 @@ public class UserService {
 	}
 	
 	// 비밀번호 조회
-	public int userPwChk(String userPw) {
-		return userMapper.pwChk(userPw);
+	public int userPwChk(String userId, String classNumber, String userName) {
+		return userMapper.pwChk(userId, classNumber, userName);
 	} 
+	
+	// 비밀번호 제공
+	public User userPw(User user) {
+		return userMapper.pwPost(user);
+	}
+	
 
 	
 }

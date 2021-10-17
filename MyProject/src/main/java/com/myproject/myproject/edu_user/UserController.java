@@ -114,30 +114,34 @@ public class UserController {
 	// ★PwChk: 주소 password: jsp명
 	@GetMapping("pwChk")
 	public String userPwChk() {	
-		logger.info("로그인 페이지로 진입");
-		System.out.println("로그인 페이지로 진입");
+		logger.info("비밀번호 조회 페이지로 진입");
+		System.out.println("비밀번호 조회 페이지로 진입");
 		return "password";
 	}
 	
-	// 비밀번호 찾기
-	@PostMapping(value = "pwChk", produces = "application/text; charset=utf8")
+	// 비밀번호 제공을 위한 확인 페이지
+	// 성공 여부를 확인하기 위해 produces = "application/text; charset=utf8" 추가했다!
+	// produces application/text에서 text/plain로 변경하면서
+	// 파일 자동으로 다운로드 되는걸 막았다!!
+	@PostMapping(value = "pwChk", produces = "text/plain; charset=utf8")
 	@ResponseBody	// password.jsp로 메서드의 결과를 반환하기 위함
-	public String userPwChk(String userPw) {
-		logger.info("유저 체크");
-		System.out.println("유저 체크");
+	public String userPwChk(String userId, String classNumber, String userName) {
+//		System.out.println("유저 체크");
+//		System.out.println("유저 아이디"+userId);
+//		System.out.println("학번"+classNumber);
+//		System.out.println("이름"+userName);
 		
-		int result = userService.userPwChk(userPw);
+		int result = userService.userPwChk(userId, classNumber, userName);
 		
-		logger.info("결과값 : " + result);
 		System.out.println("결과값 : " + result);
 		
-		if(result != 0) {
+		if(result == 0) {
 			System.out.println("실패");
-			return "실패";	// 해당 DB 존재 x
+			return "no";	// 등록되지 않은 정보
 			
 		} else {
 			System.out.println("성공");
-			return "성공";	// 해당 DB 존재
+			return "yes";	// 등록된 정보
 			
 		}
 	}
@@ -150,11 +154,27 @@ public class UserController {
 		return "find_pw";
 	}
 	
-	
-	
-	
-	
-	
+	// 비밀번호를 직접 뿌려주는 페이지
+	@PostMapping("pwChk")
+	public String pwPost(HttpServletRequest req, User user , RedirectAttributes re) {
+		
+		System.out.println("로그인 메소드");
+		System.out.println("전달된 데이터: "+user);
+		
+		HttpSession session = req.getSession();
+		User new_user = userService.userPw(user);
+		
+		if(new_user == null) {	// 일치하지 정보가 없는 경우		                                   
+            int result = 0;
+            re.addFlashAttribute("result", result);
+            return "redirect:/edu_user/pwChk";           
+        }
+        
+        session.setAttribute("user", new_user);	// 일치하는 정보 존재             
+        
+        return "redirect:/edu_user/okpw";		
+		
+	}
 	
 	// 로그아웃
 	@GetMapping("logout")

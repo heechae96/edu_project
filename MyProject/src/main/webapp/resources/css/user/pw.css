@@ -1,1 +1,12 @@
 @charset "UTF-8";
+#full{
+	text-align: center;
+	color : pink;
+}
+.comment{
+	width:400px;
+    height:200px;
+    border: 1px solid black;
+    margin : auto;
+    text-align: center;
+}
