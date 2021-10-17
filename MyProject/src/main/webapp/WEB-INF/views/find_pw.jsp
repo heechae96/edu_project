@@ -30,6 +30,12 @@
 	        		<span>"${user.password}"입니다</span><br>	 
 	        	</div>	                          
 	       	</c:if>	
+	       	<!-- 비밀번호가 조회되지 않은 상태 -->
+	        <c:if test="${ user == null }">
+	        	<div class="pwbox">
+	        		<span>조회된 정보가 없습니다</span><br>	 
+	        	</div>	                          
+	       	</c:if>	
        	</div>		
 	</div><br>
 	<button class="back">돌아가기</button>

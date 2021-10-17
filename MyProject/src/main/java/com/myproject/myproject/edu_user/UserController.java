@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -110,7 +111,7 @@ public class UserController {
 		
 	}
 	
-	// 비밀번호 페이지로 이동
+	// 비밀번호 조회 페이지로 이동
 	// ★PwChk: 주소 password: jsp명
 	@GetMapping("pwChk")
 	public String userPwChk() {	
@@ -123,15 +124,16 @@ public class UserController {
 	// 성공 여부를 확인하기 위해 produces = "application/text; charset=utf8" 추가했다!
 	// produces application/text에서 text/plain로 변경하면서
 	// 파일 자동으로 다운로드 되는걸 막았다!!
-	@PostMapping(value = "pwChk", produces = "text/plain; charset=utf8")
+	// -> 창으로 넘어가짐 -> 그냥 다운로드 둠..
+	@PostMapping(value = "pwChk", produces = "application/text; charset=utf8")
 	@ResponseBody	// password.jsp로 메서드의 결과를 반환하기 위함
 	public String userPwChk(String userId, String classNumber, String userName) {
-//		System.out.println("유저 체크");
-//		System.out.println("유저 아이디"+userId);
-//		System.out.println("학번"+classNumber);
-//		System.out.println("이름"+userName);
+//			System.out.println("유저 체크");
+//			System.out.println("유저 아이디"+userId);
+//			System.out.println("학번"+classNumber);
+//			System.out.println("이름"+userName);
 		
-		int result = userService.userPwChk(userId, classNumber, userName);
+		int result = userService.userPwChk(userId, classNumber, userName);		
 		
 		System.out.println("결과값 : " + result);
 		
@@ -158,19 +160,19 @@ public class UserController {
 	@PostMapping("pwChk")
 	public String pwPost(HttpServletRequest req, User user , RedirectAttributes re) {
 		
-		System.out.println("로그인 메소드");
+		System.out.println("비밀번호 제공 메소드");
 		System.out.println("전달된 데이터: "+user);
 		
 		HttpSession session = req.getSession();
 		User new_user = userService.userPw(user);
 		
-		if(new_user == null) {	// 일치하지 정보가 없는 경우		                                   
+		if(new_user == null) {	// 조회된 정보가 없는 경우		                                   
             int result = 0;
             re.addFlashAttribute("result", result);
-            return "redirect:/edu_user/pwChk";           
+            return "redirect:/edu_user/okpw";           
         }
         
-        session.setAttribute("user", new_user);	// 일치하는 정보 존재             
+        session.setAttribute("user", new_user);	// 조회된 정보가 있는 경우            
         
         return "redirect:/edu_user/okpw";		
 		

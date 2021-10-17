@@ -1,12 +1,12 @@
 @charset "UTF-8";
-#full{
-	text-align: center;
-	color : pink;
+/* 해당 db존재 */
+.yes{
+	color: green;
+	display: none;
 }
-.comment{
-	width:400px;
-    height:200px;
-    border: 1px solid black;
-    margin : auto;
-    text-align: center;
+
+/* 해당 db존재 x */
+.no{
+	color: red;
+	display: none;
 }

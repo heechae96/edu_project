@@ -8,8 +8,6 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<!-- css를 적용한것! -->
-<link href="/resources/css/user/pw.css" rel="stylesheet">
 </head>
 <body>
 	<h1>비밀번호를 조회하세요</h1>
@@ -24,11 +22,10 @@
 			<label>이름</label>
 			<input type="text" class="userName" name="userName" placeholder="홍길동"><br><br>
 						
-			<input type="button" class="pw_btn" value="비밀번호 조회">
+			<input type="button" class="pw_btn" value="비밀번호 조회"><br><br>
 		
 		</form>
 <script>
-
 //비밀번호 조회 버튼	
 $(".pw_btn").click(function(){
 	
@@ -56,15 +53,13 @@ $(".pw_btn").click(function(){
 		},
 		success : function(result){
 			console.log("성공 여부 : " + result);
-			if(result != "no"){				
-				location.href = "/edu_user/okpw";
+			if(result == "yes"){	
+				console.log("성공");
 			} else {	
-				alert("존재하지 않는 정보입니다.\n다시한번 확인해주세요.");
+				console.log("실패");				
 			}
 		}
 	}); 
-	
-
 });
 </script>
 </body>

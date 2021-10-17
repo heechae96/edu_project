@@ -19,9 +19,8 @@ public interface UserMapper {
 	
 	// 로그인
 	// 아이디랑 비밀번호만 받는다!
-	// ★이름은 조회만 되는것!!★
-	// @Select("select user_id, password, user_name from edu_user where user_id=#{userId} and password=#{password}")
-	@Select("select user_name from edu_user where user_id=#{userId} and password=#{password}")
+	// ★이름은 메인에서 보여줄려고 추가★
+	@Select("select user_id, password, user_name from edu_user where user_id=#{userId} and password=#{password}")
 	public User userLogin(User user);
 	
 	// 비밀번호 조회
@@ -31,9 +30,7 @@ public interface UserMapper {
 	public int pwChk(@Param("userId") String userId, @Param("classNumber") String classNumber, @Param("userName") String userName);
 	
 	// 비밀번호 제공
-	// 비밀번호는 조회만 된다!
-	@Select("select password from edu_user where user_id=#{userId} and class_number=#{classNumber} and user_name=#{userName}")
+	@Select("select user_id, class_number, user_name, password from edu_user where user_id=#{userId} and class_number=#{classNumber} and user_name=#{userName}")
 	public User pwPost(User user);
-	
 	
 }
