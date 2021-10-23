@@ -38,6 +38,4 @@ public interface UserMapper {
 	// 정보수정 [정보 변경]
 	@Update("update edu_user set password=#{password}, class_number=#{classNumber}, user_name=#{userName}, user_year=#{userYear} where num=#{num}")
 	public void userCh(User user);
-	
-	// 정보수정 [num으로 접근]
 }
