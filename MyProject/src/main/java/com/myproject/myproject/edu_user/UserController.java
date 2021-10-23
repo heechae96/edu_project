@@ -8,6 +8,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -206,5 +207,23 @@ public class UserController {
 		logger.info("시작 페이지로 진입");
 		System.out.println("시작 페이지로 진입");
 		return "start";
+	}
+	
+	// 정보수정
+	@GetMapping("change")
+	public String userch() {
+		System.out.println("정보수정 페이지로 진입");
+		return "change";
+	}
+	
+	// 정보수정
+	@PostMapping("change")
+	public String userch(@ModelAttribute User user) {		
+		System.out.println("num"+user.getNum());
+		// 정보변경
+		userService.userCh(user);
+		System.out.println("변경 후 : "+user);
+			
+		return "redirect:/edu_user/main";
 	}
 }

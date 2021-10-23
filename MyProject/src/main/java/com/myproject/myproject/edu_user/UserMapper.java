@@ -4,6 +4,7 @@ import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 @Mapper
 public interface UserMapper {
@@ -33,4 +34,9 @@ public interface UserMapper {
 	@Select("select user_id, class_number, user_name, password from edu_user where user_id=#{userId} and class_number=#{classNumber} and user_name=#{userName}")
 	public User pwPost(User user);
 	
+	// 정보수정 [정보 변경]
+	@Update("update edu_user set password=#{password}, class_number=#{classNumber}, user_name=#{userName}, user_year=#{userYear}")
+	public void userCh(User user);
+	
+	// 정보수정 [num으로 접근]
 }

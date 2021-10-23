@@ -7,6 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <title>main.jsp</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <!-- css를 적용한것! -->
 <link href="/resources/css/user/main.css" rel="stylesheet">
 <script type="text/javascript">
@@ -50,7 +51,8 @@
             <c:if test="${ user != null }">
 	            <div class="login_success_area">
 	                <span>${user.userName}님</span><br>
-	                <a href="/edu_user/logout">로그아웃</a>
+	                <a href="/edu_user/logout">로그아웃</a><br>
+	                <a href="/edu_user/change">정보수정</a><br>
 	            </div>
         	</c:if>
 			

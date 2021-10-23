@@ -50,4 +50,10 @@ public class UserService {
 		return userMapper.pwPost(user);
 	}
 	
+	
+	// 정보수정[정보변경]
+	public void userCh(User user) {
+		userMapper.userCh(user);
+	}
+	
 }
