@@ -10,6 +10,9 @@
 <body>
 	<h1>본인의 정보를 수정하세요</h1>
 		<form id="change_form" action="/edu_user/change" method="post">
+			<!-- hidden으로 해서 안보이게 설정 -->
+			<!-- 로그인 관련해서 user를 가져온것! -->
+			<input type="hidden" name="num" value="${user.num}" readonly="readonly">
 			
 			<label>비밀번호</label>
 			<input type="password" name="password" placeholder="zxcv1234"><br><br>

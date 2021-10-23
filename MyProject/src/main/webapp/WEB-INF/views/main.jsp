@@ -52,7 +52,7 @@
 	            <div class="login_success_area">
 	                <span>${user.userName}님</span><br>
 	                <a href="/edu_user/logout">로그아웃</a><br>
-	                <a href="/edu_user/change">정보수정</a><br>
+	                <a href="/edu_user/change?num=${user.num}">정보수정</a><br>
 	            </div>
         	</c:if>
 			
