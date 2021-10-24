@@ -32,7 +32,7 @@ public interface UserMapper {
 	public int pwChk(@Param("userId") String userId, @Param("classNumber") String classNumber, @Param("userName") String userName);
 	
 	// 비밀번호 제공
-	@Select("select user_id, class_number, user_name, password from edu_user where user_id=#{userId} and class_number=#{classNumber} and user_name=#{userName}")
+	@Select("select password from edu_user where user_id=#{userId} and class_number=#{classNumber} and user_name=#{userName}")
 	public User pwPost(User user);
 	
 	// 정보수정 [정보 변경]

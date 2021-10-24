@@ -23,20 +23,23 @@
 <body>
 	<h1>비밀번호 찾기 완료</h1>
 	<div id="full">
-		<div class="comment">당신의 비밀번호는 아래와 같습니다.
 	        <!-- 비밀번호가 조회된 상태 -->
-	        <c:if test="${ user != null }">
-	        	<div class="pwbox">
-	        		<span>"${user.password}"입니다</span><br>	 
-	        	</div>	                          
-	       	</c:if>	
+		    <c:if test="${ user != null }">
+		    <div class="comment">당신의 비밀번호는 아래와 같습니다.    
+		        	<div class="pwbox">
+		        		<span>"${user.password}"입니다</span><br>	 
+		        	</div>	                          
+		    </div>
+		    </c:if>	
+	       	
 	       	<!-- 비밀번호가 조회되지 않은 상태 -->
 	        <c:if test="${ user == null }">
-	        	<div class="pwbox">
-	        		<span>조회된 정보가 없습니다</span><br>	 
-	        	</div>	                          
-	       	</c:if>	
-       	</div>		
+	        <div class="comment">조회된 정보가 없습니다.
+			       	<div class="pwbox">
+			       		<span>다시 한번 확인 후 조회하세요</span><br>	 
+			       	</div>	                          
+	      	</div>		
+	      	</c:if>	
 	</div><br>
 	<button class="back">돌아가기</button>
 </body>

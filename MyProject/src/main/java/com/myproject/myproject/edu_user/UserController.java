@@ -170,10 +170,11 @@ public class UserController {
 		if(new_user == null) {	// 조회된 정보가 없는 경우		                                   
             int result = 0;
             re.addFlashAttribute("result", result);
+    		
             return "redirect:/edu_user/okpw";           
         }
         
-        session.setAttribute("user", new_user);	// 조회된 정보가 있는 경우            
+		session.setAttribute("user", new_user);	// 조회된 정보가 있는 경우
         
         return "redirect:/edu_user/okpw";		
 		
@@ -219,7 +220,7 @@ public class UserController {
 	// 정보수정
 	@PostMapping("change")
 	public String userch(@ModelAttribute User user) {		
-		System.out.println("num"+user.getNum());
+		// System.out.println("num"+user.getNum());
 		// 정보변경
 		userService.userCh(user);
 		System.out.println("변경 후 : "+user);
