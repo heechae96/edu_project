@@ -7,7 +7,6 @@ public class UserClass {
 	private int year;	// 과목의 해당 학년
 	private String className;	// 과목명
 	private int credit;	// 해당 학점
-	private String userGrade;	// 학생 성적
 	
 	// 생성자
 	public UserClass() {}
@@ -53,19 +52,10 @@ public class UserClass {
 		this.credit = credit;
 	}
 
-	public String getUserGrade() {
-		return userGrade;
-	}
-
-	public void setUserGrade(String userGrade) {
-		this.userGrade = userGrade;
-	}
-
 	// toString
 	@Override
 	public String toString() {
-		return "Class [num=" + num + ", track=" + track + ", year=" + year + ", className=" + className + ", credit="
-				+ credit + ", userGrade=" + userGrade + "]";
-	}
-	
+		return "UserClass [num=" + num + ", track=" + track + ", year=" + year + ", className=" + className
+				+ ", credit=" + credit + "]";
+	}	
 }

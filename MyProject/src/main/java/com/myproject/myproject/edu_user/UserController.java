@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -44,8 +43,8 @@ public class UserController {
 	// 위랑 파라미터가 다르기 때문에 상관x
 	@PostMapping("join")
 	public String userJoin(User user, RedirectAttributes re) {
-		logger.info("메인 페이지로 이동");
-		System.out.println("메인 페이지로 이동");
+		logger.info("회원가입 페이지로 이동");
+		System.out.println("회원가입 페이지로 이동");
 		
 		// 회원가입 서비스 실행
 		String result = userService.insertUser(user);
