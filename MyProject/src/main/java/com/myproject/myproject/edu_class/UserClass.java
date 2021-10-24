@@ -1,6 +1,7 @@
 package com.myproject.myproject.edu_class;
 
 public class UserClass {
+	
 	private int num;	// 구분 번호
 	private String track;	// 트랙
 	private int year;	// 과목의 해당 학년
