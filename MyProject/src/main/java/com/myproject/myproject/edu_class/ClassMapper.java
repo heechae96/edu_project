@@ -40,5 +40,9 @@ public interface ClassMapper {
 	@Delete("delete from edu_class where num=#{num}")
 	public int deleteBoard(int num);
 	
+	// 과목 전체를 조회하는 메소드[리스트 형태로]
+	// 학생테이블에서 과목을 추가하는데 사용..
+	@Select("select num, track, year, class_name, credit from edu_class order by num asc")
+	public List<UserClass> selectClass();
 	
 }

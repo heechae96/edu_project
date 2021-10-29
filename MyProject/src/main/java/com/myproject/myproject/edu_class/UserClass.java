@@ -8,13 +8,26 @@ public class UserClass {
 	private String className;	// 과목명
 	private int credit;	// 해당 학점
 	
-	// 생성자
+	// 기본 생성자
 	public UserClass() {}
+	
+	// 생성자
+	// 새로 추가!
+	public UserClass(int num, String track, int year, String className, int credit) {
+		super();
+		this.num = num;
+		this.track = track;
+		this.year = year;
+		this.className = className;
+		this.credit = credit;
+	}
+	
 
 	// getters and setters
 	public int getNum() {
 		return num;
 	}
+
 
 	public void setNum(int num) {
 		this.num = num;

@@ -13,13 +13,31 @@ public class User {
 	private int credit;	// 해당 학점
 	private String userGrade;	// 성적
 	
-	// 생성자
+	// 기본 생성자
 	public User() {}
-
+	
+	// 생성자
+	public User(int num, String userId, String password, String classNumber, String userName, int userYear,
+			String track, int year, String className, int credit, String userGrade) {
+		super();
+		this.num = num;
+		this.userId = userId;
+		this.password = password;
+		this.classNumber = classNumber;
+		this.userName = userName;
+		this.userYear = userYear;
+		this.track = track;
+		this.year = year;
+		this.className = className;
+		this.credit = credit;
+		this.userGrade = userGrade;
+	}
+	
 	// getters and setters
 	public int getNum() {
 		return num;
 	}
+
 
 	public void setNum(int num) {
 		this.num = num;

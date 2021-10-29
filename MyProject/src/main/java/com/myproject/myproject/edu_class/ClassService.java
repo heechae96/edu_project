@@ -78,4 +78,16 @@ public class ClassService {
 			return "삭제 실패";
 		}
 	}
+	
+	// 과목 전체를 조회하는 메소드
+	// 과목 추가를 할때 사용하기 위함
+	public List<UserClass> selectClass() {
+		
+		List<UserClass> list = null;
+		
+		list = classMapper.selectClass();
+		
+		return list;
+		
+	}
 }

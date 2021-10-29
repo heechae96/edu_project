@@ -194,20 +194,6 @@ public class UserController {
 		return "redirect:/edu_user/main";	
 	}
 	
-	// 추가 페이지로 이동
-	@GetMapping("add")
-	public String userAdd() {
-		logger.info("추가 페이지로 진입");
-		System.out.println("추가 페이지로 진입");
-		return "add";
-	}
-	// 시작 페이지로 이동
-	@GetMapping("start")
-	public String userStart() {
-		logger.info("시작 페이지로 진입");
-		System.out.println("시작 페이지로 진입");
-		return "start";
-	}
 	
 	// 정보수정
 	@GetMapping("change")
@@ -226,4 +212,41 @@ public class UserController {
 			
 		return "redirect:/edu_user/main";
 	}
+	
+	// 추가 페이지로 이동
+	@GetMapping("add")
+	public String userAdd() {
+		logger.info("추가 페이지로 진입");
+		System.out.println("추가 페이지로 진입");
+		return "classform";
+	}
+	
+	
+	// 시작 페이지로 이동
+	@GetMapping("start")
+	public String userStart() {
+		logger.info("시작 페이지로 진입");
+		System.out.println("시작 페이지로 진입");
+		return "start";
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }
