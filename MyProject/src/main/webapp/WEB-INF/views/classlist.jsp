@@ -11,6 +11,10 @@
 	// 비어있지 않은 경우 -> true
 	// 비어있는 경우 -> false
 	var result = ${not empty result}
+	
+	// 반환값을 넣었기 때문에 항상 값이 들어가 있는 상태
+	// -> true를 반환
+	// write와 delete의 반환값이 자동으로 들어간다!!
 	if(result){
 		alert("${result}");
 	}
@@ -23,7 +27,7 @@
 		<h2>등록된 과목이 없습니다</h2>
 	</c:if>
 	<c:if test="${boardListView.boardTotalCount != 0 }">
-		<table>
+		<table border="10" style="text-align:center">
 			<thead>
 				<tr>
 					<th>번호</th>
@@ -45,7 +49,7 @@
 					</tr>
 				</c:forEach>
 			</tbody>
-		</table>
+		</table>		
 		<!-- 페이징 -->
 		<section>
 			<c:forEach var="pageN" begin="1" end="${boardListView.pageTotalCount }">

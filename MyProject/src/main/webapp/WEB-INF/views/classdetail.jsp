@@ -42,7 +42,7 @@
 			// 폼을 화면에 붙어주자!
 			document.body.appendChild(form);		
 			// 전송
-			// form.submit();
+			form.submit();
 		})
 	});
 </script>
@@ -54,7 +54,7 @@
 		<a href="/edu_class/list">목록으로 돌아가기</a>
 	</c:if>
 	<c:if test="${board != null }">
-		<table>
+		<table border="10" style="text-align:center">
 			<tbody>
 				<tr>
 					<td>번호</td>
@@ -71,7 +71,7 @@
 					<td>${board.credit }</td>
 				</tr>
 				<tr>
-					<td colspan="4">
+					<td colspan="5">
 						<button id="update">수정</button>
 						<button id="delete">삭제</button>
 					</td>

@@ -73,7 +73,7 @@ public class ClassController {
 	// 삭제
 	@PostMapping("delete")
 	public String boardDelete(int num, RedirectAttributes re) {
-		System.out.println("아이디: "+num);
+		System.out.println("num: "+num);
 		String result = classService.deleteBoard(num);
 		
 		re.addFlashAttribute("result", result);
