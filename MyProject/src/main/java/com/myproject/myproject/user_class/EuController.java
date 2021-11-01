@@ -2,6 +2,8 @@ package com.myproject.myproject.user_class;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -47,12 +49,15 @@ public class EuController {
 		
 		System.out.println("디비 등록 성공");
 		
+		//return "redirect:/user_class/add";
 		return "redirect:add";
 	}
 	
 	@GetMapping("select")
-	public String showClass(Model m, String num) {		
-		num = "60185100";
+	public String showClass(Model m, String num, HttpServletRequest req) {		
+		// 학번을 어떻게 가져올까??
+		String classNumber = req.getParameter("class_number");
+		num = classNumber;
 		System.out.println(num);
 		List<Eu> eu = euservice.getUserClass(num);
 		m.addAttribute("eu",eu);
@@ -60,6 +65,7 @@ public class EuController {
 		
 		return "euform_ok";
 	}
+	
 	
 	
 	

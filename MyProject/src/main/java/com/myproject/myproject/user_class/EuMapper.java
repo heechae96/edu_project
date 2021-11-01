@@ -17,9 +17,7 @@ public interface EuMapper {
 	// 과목을 조회하기 위해
 	@Select("select * from edu_class order by num asc")
 	public List<UserClass> selectClass();
-	
-	
-	
+		
 	// 과목코드와 학번을 받아 등록하는 메소드
 	// 여러개의 값을 받아야 하는데?
 	// -> param으로 지정해서 보내기
@@ -35,4 +33,5 @@ public interface EuMapper {
 	@Select("select * from user_class where class_number=#{classNumber}")
 	public List<Eu> showClassByNum(String classNumber);
 	
+
 }

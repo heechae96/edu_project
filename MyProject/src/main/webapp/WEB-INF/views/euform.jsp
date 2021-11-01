@@ -21,6 +21,7 @@
 <form action="/user_class/add" method="post">
 	<h1>교과목 추가 페이지</h1>
 	<h2 style="color:Tomato">강좌번호와 성적을 입력하세요</h2>
+	<a href="/user_class/select?class_number=${user.classNumber }">교과목 조회하기</a><br>
 	<input type="hidden" name="classNumber" value="${user.classNumber }">
 		<table border="1" style="text-align:center">
 			<thead>
