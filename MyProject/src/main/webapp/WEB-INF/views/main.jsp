@@ -22,10 +22,7 @@
 		// body에서 직접하기 위해 제거!
 		
 		// 추가
-		var btn_add = document.querySelector("#add");
-		btn_add.onclick = function() {
-			location.href = "/edu_user/add"	
-		}
+		// body에서 직접하기 위해 제거!
 		
 		// 시작
 		var btn_start = document.querySelector("#start");
@@ -60,7 +57,12 @@
 		<h1>내 미래 직업은?</h1>
 		<div class="logo_img">이미지</div>
 		<div id="btn2">
-			<button id=add>추가</button>
+			<c:if test="${ user != null }">   
+	                <a href="/user_class/add?class_number=${user.classNumber }">추가</a><br>
+			</c:if>
+			<c:if test="${ user != null }">   
+	                <a href="/user_class/select?class_number=${user.classNumber }">조회</a><br>
+			</c:if>
 			<button id=start>시작</button>
 		</div>		
 	</div>

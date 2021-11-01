@@ -1,5 +1,7 @@
 package com.myproject.myproject.edu_user;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -7,12 +9,15 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import com.myproject.myproject.edu_class.UserClass;
 
 @Controller
 @RequestMapping("edu_user")
@@ -213,13 +218,13 @@ public class UserController {
 		return "redirect:/edu_user/main";
 	}
 	
-	// 추가 페이지로 이동
-	@GetMapping("add")
-	public String userAdd() {
-		logger.info("추가 페이지로 진입");
-		System.out.println("추가 페이지로 진입");
-		return "classform";
-	}
+//	// 추가 페이지로 이동
+//	@GetMapping("add")
+//	public String userAdd() {
+//		logger.info("추가 페이지로 진입");
+//		System.out.println("추가 페이지로 진입");
+//		return "classform";
+//	}
 	
 	
 	// 시작 페이지로 이동
@@ -229,24 +234,6 @@ public class UserController {
 		System.out.println("시작 페이지로 진입");
 		return "start";
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	
 }

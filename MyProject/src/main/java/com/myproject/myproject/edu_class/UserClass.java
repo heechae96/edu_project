@@ -7,19 +7,21 @@ public class UserClass {
 	private int year;	// 과목의 해당 학년
 	private String className;	// 과목명
 	private int credit;	// 해당 학점
+	private double userGrade;
 	
 	// 기본 생성자
 	public UserClass() {}
 	
 	// 생성자
 	// 새로 추가!
-	public UserClass(int num, String track, int year, String className, int credit) {
+	public UserClass(int num, String track, int year, String className, int credit, double userGrade) {
 		super();
 		this.num = num;
 		this.track = track;
 		this.year = year;
 		this.className = className;
 		this.credit = credit;
+		this.userGrade = userGrade;
 	}
 	
 
@@ -64,11 +66,22 @@ public class UserClass {
 	public void setCredit(int credit) {
 		this.credit = credit;
 	}
+	
+
+	public double getUserGrade() {
+		return userGrade;
+	}
+
+	public void setUserGrade(double userGrade) {
+		this.userGrade = userGrade;
+	}
 
 	// toString
 	@Override
 	public String toString() {
 		return "UserClass [num=" + num + ", track=" + track + ", year=" + year + ", className=" + className
-				+ ", credit=" + credit + "]";
-	}	
+				+ ", credit=" + credit + ", userGrade=" + userGrade + "]";
+	}
+
+		
 }

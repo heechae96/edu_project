@@ -22,7 +22,8 @@ public interface UserMapper {
 	// 아이디랑 비밀번호만 받는다!
 	// ★이름은 메인에서 보여줄려고 추가★
 	// num은 정보수정에 쓰려고 추후에 추가한것.
-	@Select("select num, user_id, password, user_name from edu_user where user_id=#{userId} and password=#{password}")
+	// class_number는 추가때 사용하기위해 추가..
+	@Select("select num, user_id, password, user_name, class_number from edu_user where user_id=#{userId} and password=#{password}")
 	public User userLogin(User user);
 	
 	// 비밀번호 조회
@@ -38,4 +39,8 @@ public interface UserMapper {
 	// 정보수정 [정보 변경]
 	@Update("update edu_user set password=#{password}, class_number=#{classNumber}, user_name=#{userName}, user_year=#{userYear} where num=#{num}")
 	public void userCh(User user);
+	
+	
+	
+
 }

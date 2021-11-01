@@ -17,6 +17,9 @@
 	<context:component-scan base-package="com.myproject.myproject.edu_user">
 		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
 	</context:component-scan>
+	<context:component-scan base-package="com.myproject.myproject.user_class">
+		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+	</context:component-scan>
 	
 	
 	<!-- Root Context: defines shared resources visible to all other web components -->
@@ -43,5 +46,6 @@
 	<!-- 매퍼 인터페이스 빈으로 등록 -->
 	<mybatis-spring:scan base-package="com.myproject.myproject.edu_class"/>
 	<mybatis-spring:scan base-package="com.myproject.myproject.edu_user"/>
+	<mybatis-spring:scan base-package="com.myproject.myproject.user_class"/>
 	
 </beans>
