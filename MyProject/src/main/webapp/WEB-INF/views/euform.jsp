@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>교과목 추가 페이지</title>
 <script>
 	// result가 
 	// 비어있지 않은 경우 -> true
@@ -21,7 +21,6 @@
 <form action="/user_class/add" method="post">
 	<h1>교과목 추가 페이지</h1>
 	<h2 style="color:Tomato">강좌번호와 성적을 입력하세요</h2>
-	<a href="/user_class/select?class_number=${user.classNumber }">교과목 조회하기</a><br>
 	<input type="hidden" name="classNumber" value="${user.classNumber }">
 		<table border="1" style="text-align:center">
 			<thead>
@@ -48,9 +47,9 @@
 		</table>
 		<br>
 		<input type="number" min="12" max="52" name="num" value="${list.num }" placeholder="번호" required>
-		<input type="number" min="0" max="4.5" step="0.5" name="userGrade" value="${list.userGrade }" placeholder="성적" required><br>
-		<br>
-		<input type="submit" value="제출">			 	
+		<input type="number" min="0" max="4.5" step="0.5" name="userGrade" value="${list.userGrade }" placeholder="성적" required>
+		<input type="submit" value="제출">
+		<button type="button" onclick="location.href='/edu_user/main'">메인으로 돌아가기</button> 			 	
 </form>
 </body>
 </html>

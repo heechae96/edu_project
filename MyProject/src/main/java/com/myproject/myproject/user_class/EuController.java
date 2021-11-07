@@ -29,14 +29,11 @@ public class EuController {
 		
 		// 여기에서 서비스를 이용하여 화면에 보여줄 데이터를 가져온다.
 		List<UserClass> classlist = euservice.selectClass();
-		// List<User> userlist = euservice.selectUser();
 		
 		// 화면에 보내기 위해 모델에 넣어준다.
 		m.addAttribute("classlist", classlist);	
-		// m.addAttribute("userlist", userlist);
 		
 		System.out.println("classlist: "+classlist);
-		//System.out.println("userlist: "+userlist);
 		
 		return "euform";
 		
@@ -63,8 +60,67 @@ public class EuController {
 		m.addAttribute("eu",eu);
 		System.out.println(eu);
 		
+		List<UserClass> classlist = euservice.getClassName(num);
+		m.addAttribute("classlist", classlist);
+		System.out.println(classlist);		
+		
 		return "euform_ok";
 	}
+	
+	@GetMapping("detail")
+	public String detailClass(Model m, int num, HttpServletRequest req) {
+		// 성적을 수정 및 삭제하기 위해
+		String number = req.getParameter("num");
+		num = Integer.parseInt(number);
+		System.out.println("받아온 num: "+num);
+		List<Eu> eu = euservice.getEu(num);
+		m.addAttribute("eu", eu);
+		System.out.println(eu);
+		
+		// ★중요★
+		Eu list = euservice.getNum(num);
+		m.addAttribute("lst", list);
+		
+		return "euform_detail";
+	}
+	
+	@PostMapping("delete")
+	public String deleteForm(int num, RedirectAttributes re) {
+		System.out.println("num: "+num);
+		String result = euservice.deleteClass(num);
+		
+		re.addFlashAttribute("result", result);
+		
+		return "redirect:/edu_user/main";
+	}
+	
+	@GetMapping("update")
+	public String updateClass(int num, String className, Model m, HttpServletRequest req) {
+		// 입력한 성적을 보여주기 위해서
+		Eu list = euservice.getNum(num);
+		m.addAttribute("lst", list);
+		
+		// 만들어진 과목테이블을 보여주기 위하여
+		List<UserClass> classlist = euservice.selectClass();	
+		m.addAttribute("classlist", classlist);
+		
+		return "euform_update";
+	}
+	
+	@PostMapping("update")
+	public String boardUpdate(Eu eu, RedirectAttributes re) {
+		
+		System.out.println("받은 내용 : "+eu);
+		
+		// 서비스로 과목을 수정작업을 필요로함!
+		String result = euservice.updateClass(eu);
+		re.addFlashAttribute("result", result);
+
+		return "redirect:/edu_user/main";
+	}
+	
+	
+	
 	
 	
 	

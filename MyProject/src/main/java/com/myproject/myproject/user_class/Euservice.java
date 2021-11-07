@@ -36,7 +36,6 @@ public class Euservice {
 		int num = userclass.getNum();
 		String classNumber = user.getClassNumber();
 		double grade = userclass.getUserGrade();
-
 		
 		System.out.println("인덱스 :"+indexnum);
 		System.out.println("과목코드 :"+num);
@@ -52,11 +51,58 @@ public class Euservice {
 		}
 	}
 
-
+	// 조회에 사용
 	public List<Eu> getUserClass(String num) {
 		List<Eu> eulist = eumapper.showClassByNum(num);
 		return eulist;
 	}
-
 	
+	// 조회에 사용
+	public List<UserClass> getClassName(String num){
+		List<UserClass> classList = eumapper.selectClassName(num);
+		return classList;
+	}
+	
+	
+	
+	
+	
+	
+	// 수정 및 삭제에 사용
+	public List<Eu> getEu(int num) {
+		
+		return eumapper.selectEuByNum(num);
+	}
+	
+	// 수정 및 삭제에 사용
+	public Eu getNum(int num) {
+		
+		return eumapper.selectByNum(num);
+	}
+		
+	// 과목 성적을 수정하는 로직
+	public String updateClass(Eu eu) {
+		
+		int row = eumapper.updateClass(eu);
+		
+		if(row > 0) {
+			return "수정 성공";
+		}else {
+			return "수정 실패";
+		}
+	}
+	
+	// 과목을 삭제하는 로직
+	public String deleteClass(int num) {
+		int row = eumapper.deleteClass(num);
+		
+		if(row > 0) {
+			return "삭제 성공";
+		}else {
+			return "삭제 실패";
+		}
+		
+	}
+
+
 }

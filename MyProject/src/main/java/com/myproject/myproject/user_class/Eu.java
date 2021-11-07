@@ -54,6 +54,5 @@ public class Eu {
 		return "Eu [indexNum=" + indexNum + ", classNumber=" + classNumber + ", num=" + num + ", userGrade=" + userGrade
 				+ "]";
 	}
-	
 
 }
