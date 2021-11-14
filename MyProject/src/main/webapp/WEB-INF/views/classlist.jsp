@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>리스트 페이지</title>
+<title>(관리자)리스트 페이지</title>
 <script>
 	// result가 
 	// 비어있지 않은 경우 -> true

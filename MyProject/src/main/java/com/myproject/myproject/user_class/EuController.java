@@ -1,6 +1,7 @@
 package com.myproject.myproject.user_class;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -146,6 +147,31 @@ public class EuController {
 		re.addFlashAttribute("result", result);
 
 		return "redirect:/edu_user/main";
+	}
+	
+	
+	// 결과페이지 관련
+	@GetMapping("result")
+	public String resultG(Model m, Eu eulist, String num, HttpServletRequest req) {
+		String classNumber = req.getParameter("class_number");
+		num = classNumber;
+		// System.out.println(num);
+		List<Eu> eu = euservice.getUserClass(num);
+		m.addAttribute("eu",eu);
+		// System.out.println(eu);
+		
+		// 리스트가 아닌 Map을 통해 키워드와 값으로 가져와서 결과를 보여줌
+		Map<String, String> list = euservice.result(eulist);
+		m.addAttribute("list", list);
+		// System.out.println(list);
+		
+		return "result";
+	}
+	
+	@PostMapping("result")
+	public String resultP(Eu eu, RedirectAttributes re) {
+		
+		return "redirect:result";
 	}
 	
 	

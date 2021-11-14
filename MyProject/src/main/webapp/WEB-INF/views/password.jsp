@@ -6,30 +6,28 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>비밀번호 조회</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<style>
-body{
-	text-align: center;
-}
-</style>
+<link href="/resources/css/user/password.css" rel="stylesheet">
 </head>
 <body>
-	<h1>비밀번호를 조회하세요</h1>
-		<form id="pw_form" action="/edu_user/pwChk" method="post">
-		
-			<label>아이디</label>
-			<input type="text" class="userId" name="userId" placeholder="qwer1234" required="required"><br><br>
+	<main class="con">
+		<h1>비밀번호를 조회하세요</h1>
+			<form id="pw_form" action="/edu_user/pwChk" method="post">
 			
-			<label>학번</label>
-			<input type="text" class="classNumber" name="classNumber" placeholder="60180000" required="required"><br><br>
+				<label>아이디</label>
+				<input type="text" class="userId" name="userId" placeholder="qwer1234" required="required"><br><br>
+				
+				<label>학번</label>
+				<input type="text" class="classNumber" name="classNumber" placeholder="60180000" required="required"><br><br>
+				
+				<label>이름</label>
+				<input type="text" class="userName" name="userName" placeholder="홍길동" required="required"><br><br>
+							
+				<input type="button" class="pw_btn" value="비밀번호 조회"><br><br>
 			
-			<label>이름</label>
-			<input type="text" class="userName" name="userName" placeholder="홍길동" required="required"><br><br>
-						
-			<input type="button" class="pw_btn" value="비밀번호 조회"><br><br>
-		
-		</form>
+			</form>
+		</main>	
 <script>
 //비밀번호 조회 버튼	
 $(".pw_btn").click(function(){

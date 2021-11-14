@@ -1,25 +1,39 @@
 @charset "UTF-8";
+.con{
+    width:400px;
+    margin: 80px auto;
+}
+.login_success_area{
+	margin: 20px -450px 0px 0px;
+}
+
+.login_fail_area{
+	margin: 20px -525px 0px 0px;
+}
+  
 #full{
 	text-align: center;
+	width:700px;
+    margin: 100px auto;
+    margin-bottom: 3%;
+    height:1000px; 
+    border:1px solid gray;
+    border-radius: 10px;
 }
+
 .logo_img{
-    width:700px;
     height:350px;
     margin : auto;
     text-align: center;
 }
-.logo{
-    text-align: center;
-}
-#btn1{
-	margin-left: 650px;
-}
+
 p{
 	font-size: 20px;
 	font-weight: 500;
 	color: gray;
 	margin-bottom: 0;
 }
+
 h3{
 	color: navy;
 	font-size: 40px;
@@ -33,6 +47,7 @@ h3{
     margin: 15px 0px;
     background-color: navy;
 }
+
 .span_btn{
 	color: white;
     font-size: 18px;

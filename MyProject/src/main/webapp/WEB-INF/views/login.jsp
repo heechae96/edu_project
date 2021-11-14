@@ -6,12 +6,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>로그인</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<style>
-body{text-align: center;}
-.txt{color: reds;}
-</style>
+<link href="/resources/css/user/login.css" rel="stylesheet">
 <script>
 if(${result == 0 }){
 	alert("아이디 또는 비밀번호를 잘못 입력하였습니다.")
@@ -21,19 +18,21 @@ if(${result == 0 }){
 <link href="/resources/css/user/login.css" rel="stylesheet">
 </head>
 <body>
-	<h1>로그인을 통해 서비스를 이용하세요</h1>
-	<form id="login_form" action="/edu_user/login" method="post">
-	
-		<label>아이디</label>
-		<input type="text" class="userId" name="userId" placeholder="qwer1234" required="required"><br><br>
+	<main class="con">	
+		<h1>로그인을 통해 서비스를 이용하세요</h1>
+		<form id="login_form" action="/edu_user/login" method="post">
 		
-		<label>비밀번호</label>
-		<input type="text" name="password" placeholder="zxcv1234" required="required"><br><br>
-				
-		<input type="button" class="pw_btn" value="비밀번호 조회">
-		<input type="button" class="login_btn" value="로그인">	
-	
-	</form>
+			<label>아이디</label>
+			<input type="text" class="userId" name="userId" placeholder="qwer1234" required="required"><br><br>
+			
+			<label>비밀번호</label>
+			<input type="text" name="password" placeholder="zxcv1234" required="required"><br><br>
+					
+			<input type="button" class="pw_btn" value="비밀번호 조회">
+			<input type="button" class="login_btn" value="로그인">	
+		
+		</form>
+	</main>
 <script>
 
 // 로그인 버튼

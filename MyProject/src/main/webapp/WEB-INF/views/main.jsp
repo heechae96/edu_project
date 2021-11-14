@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>main.jsp</title>
+<title>메인</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script>	
 var result = ${not empty result}
@@ -22,21 +22,24 @@ if(result){
 	<div id="full">
 		<div id="btn1">			
 			<!-- 로그인 하지 않은 상태 -->
-            <c:if test = "${ user == null}">
-            	<button type="button" onclick="location.href='/edu_user/login'">로그인</button>
-            	<button type="button" onclick="location.href='/edu_user/join'">회원가입</button>         
-            </c:if>
-            
-            <!-- 로그인한 상태 -->
-            <c:if test="${ user != null }">
+	           <c:if test = "${ user == null}">
+	           	<div class="login_fail_area">
+		           	<button type="button" onclick="location.href='/edu_user/login'">로그인</button>
+		           	<button type="button" onclick="location.href='/edu_user/join'">회원가입</button>         
+	           	</div>
+	           </c:if>
+	           
+	           <!-- 로그인한 상태 -->
+	           <c:if test="${ user != null }">
 	            <div class="login_success_area">
 	                <span>${user.userName}님</span>
 	                <button type="button" onclick="location.href='/edu_user/logout'">로그아웃</button>
-            		<button type="button" onclick="location.href='/edu_user/change?num=${user.num}'">정보수정</button>	                
+	           		<button type="button" onclick="location.href='/edu_user/change?num=${user.num}'">정보수정</button>	                
 	            </div>
-        	</c:if>		
+	       	</c:if>		
 		</div>
 		
+	<main class="con">
 		<p>나는 어떤 분야가 잘 맞을까?</p>
 		<h3>직군 테스트</h3>
 		<div class="logo_img">
@@ -44,11 +47,12 @@ if(result){
 		</div><br>
 		<div id="btn2">
 			<c:if test="${ user != null }">   
-	                <button class="btn" type="button" onclick="location.href='/user_class/add?class_number=${user.classNumber }'"><span class="span_btn">추가하기</span></button><br>
-	                <button class="btn" type="button" onclick="location.href='/user_class/select?class_number=${user.classNumber }'"><span class="span_btn">조회하기</span></button><br>
-					<button class="btn" id=start><span class="span_btn">시작하기</span></button>
+	                <button class="btn" type="button" onclick="location.href='/user_class/add?class_number=${user.classNumber }'"><span class="span_btn">과목 추가</span></button><br>
+	                <button class="btn" type="button" onclick="location.href='/user_class/select?class_number=${user.classNumber }'"><span class="span_btn">과목 조회</span></button><br>
+					<button class="btn" type="button" onclick="location.href='/user_class/result?class_number=${user.classNumber }'"><span class="span_btn">결과 조희</span></button>
 			</c:if>
-		</div>		
-	</div>
+		</div>	
+	</main>	
+	</div>	
 </body>
 </html>

@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>수정</title>
+<title>교과목 수정</title>
 </head>
 <body>
 	<h1>교과목 수정 페이지</h1>

@@ -34,6 +34,7 @@ public interface EuMapper {
 					
 	// 추가한 과목 정보를 학번을 통해 보여주는 메소드
 	// 과목명이 필요한데 과목명은 다른 테이블에서 가져오자
+	// ★결과에도 사용★
 	@Select("select * from user_class where class_number=#{classNumber} order by user_class.num asc")
 	public List<Eu> showClassByNum(String classNumber);
 	
@@ -42,9 +43,6 @@ public interface EuMapper {
 	// where절 위치 주의!
 	@Select("select * from edu_class inner join user_class on edu_class.num = user_class.num where class_number=#{classNumber} order by edu_class.num asc")
 	public List<UserClass> selectClassName(String classNumber);
-	
-	
-	
 	
 	// 과목코드, 학번을 통해 추가한 과목을 가져올것.
 	// 다른 회원의 정보까지 가져올수 있다.. 학번에도 제한이 필요
@@ -63,5 +61,11 @@ public interface EuMapper {
 	// 과목코드를 통해 과목을 삭제
 	@Delete("delete from user_class where num=#{num}")
 	public int deleteClass(int num);
+	
+	
+// 결과에 쓰일 로직
+
+	
+
 
 }

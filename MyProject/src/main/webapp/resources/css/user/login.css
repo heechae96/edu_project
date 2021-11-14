@@ -1,0 +1,14 @@
+@charset "UTF-8";
+body{
+	text-align: center;
+}
+.txt{
+	color: reds;
+}
+.con {
+	width: 600px;
+    margin: 225px auto;
+    height: 250px;
+    border: 1px solid gray;
+    border-radius: 10px;  
+}

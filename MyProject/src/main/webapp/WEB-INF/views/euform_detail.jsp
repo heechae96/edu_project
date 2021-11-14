@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>교과목 상세 페이지</title>
+<title>교과목 상세보기</title>
 <script type="text/javascript">	
 
 	var result = ${not empty result}

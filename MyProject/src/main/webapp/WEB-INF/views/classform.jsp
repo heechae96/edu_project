@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>(관리자)교과목 추가</title>
 </head>
 <body>
 <form id="class_add_form" action="edu_class/add" method="post">

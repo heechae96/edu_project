@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>상세보기 페이지</title>
+<title>(관리자)상세보기</title>
 <script type="text/javascript">
 	window.addEventListener("DOMContentLoaded",function(){
 		// console.log("돔 이벤트 호출!!");

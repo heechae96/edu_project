@@ -1,0 +1,82 @@
+@charset "UTF-8";
+  
+.con {
+    width: 500px;
+    margin: 35px auto;
+}
+
+.title > h3 {
+    font-size: 30px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.sub_title > .top_txt {
+    font-size: 18px;
+    color: gray;
+    margin-bottom: 3%;
+    text-align: center;
+}
+
+.sub_title > .btm_txt {
+    font-size: 23px;
+    color: #0578B4;
+    font-weight: 700;
+    text-align: center;
+}
+
+.explain-box{
+    width:100%;
+    margin: 0 auto;
+    margin-bottom: 3%;
+    height:1000px; 
+    border:1px solid gray;
+    border-radius: 10px;  
+}
+
+.explain-box > .data > p {
+    margin: 0 auto;
+    margin-top: 5%;
+    width: 160px;
+    color: #333;
+    font-size: 20px;
+    font-weight: 600;
+    border-bottom: 1px solid #75c2ec;
+    box-shadow: inset 0 -6px 0 #75c2ec;
+}
+
+.explain-box > .data > .job > .job_title {
+    color: #75c2ec;
+    font-weight: 600;
+    margin-bottom: 3%;
+}
+
+.explain-box > .data > .job > .job_ex {
+    margin-bottom: 3%;
+}
+
+.explain-box > .data > .job{
+    margin-top: 5%;
+    margin-bottom: 5%;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.retest > button > p {
+    color: white;
+    font-weight: 600;
+    font-size: 15px;
+    letter-spacing: 2px;
+}
+
+.retest > button {
+    width: 400px;
+    line-height: 20px;
+    border: none;
+    background-color: navy;
+    border-radius: 25px;
+}
+
+.retest{
+	text-align: center;
+}

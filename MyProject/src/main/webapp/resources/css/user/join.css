@@ -10,6 +10,12 @@
 	color : red;
 	display : none;
 }
-body{
-	text-align: center;
+.con {
+	width: 625px;
+    margin: 225px auto;
+    height: 350px;
+    border: 1px solid gray;
+    border-radius: 10px;  
+    text-align: center;
+    margin-bottom: 3px;
 }
