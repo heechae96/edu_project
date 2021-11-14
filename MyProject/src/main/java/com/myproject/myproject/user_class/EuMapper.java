@@ -27,8 +27,11 @@ public interface EuMapper {
 			+"values(#{indexNum}, #{classNumber}, #{num}, #{userGrade})")
 	public int insertdb(@Param("indexNum")int indexNum, @Param("classNumber")String classNumber, 
 						@Param("num")int num, @Param("userGrade")double userGrade);
-				
 	
+	// 과목 중복 검사
+	@Select("select count(*) from user_class where class_number=#{classNumber} and num=#{num}")
+	public int ClassChk(@Param("classNumber") String classNumber, @Param("num") int num);
+					
 	// 추가한 과목 정보를 학번을 통해 보여주는 메소드
 	// 과목명이 필요한데 과목명은 다른 테이블에서 가져오자
 	@Select("select * from user_class where class_number=#{classNumber} order by user_class.num asc")
@@ -43,13 +46,15 @@ public interface EuMapper {
 	
 	
 	
-	// 과목코드를 통해 추가한 과목을 가져올것.
-	@Select("select * from user_class where num=#{num}")
-	public List<Eu> selectEuByNum(int num);
+	// 과목코드, 학번을 통해 추가한 과목을 가져올것.
+	// 다른 회원의 정보까지 가져올수 있다.. 학번에도 제한이 필요
+	@Select("select * from user_class where num=#{num} and class_number=#{classNumber}")
+	public List<Eu> selectEuByNum(@Param("num")int num, @Param("classNumber")String classNumber);
 	
-	// 과목을 num으로 가져오는 메소드
-	@Select("select * from user_class where num=#{num}")
-	public Eu selectByNum(int num);
+	// 과목코드, 학번을 통해 추가한 과목을 가져올것.
+	// 다른 회원의 정보까지 가져올수 있다.. 학번에도 제한이 필요
+	@Select("select * from user_class where num=#{num} and class_number=#{classNumber}")
+	public Eu selectByNum(@Param("num")int num, @Param("classNumber")String classNumber);
 	
 	// 과목코드를 통해 과목을 수정
 	@Update("update user_class set user_grade=#{userGrade} where num=#{num} and class_number=#{classNumber}")

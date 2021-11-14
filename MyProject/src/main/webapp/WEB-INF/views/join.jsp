@@ -15,36 +15,26 @@
 		
 		<label>아이디</label>
 		<!-- jquery에서 사용하려고 class추가.. -->
-		<input type="text" class= "userId" name="userId" placeholder="qwer1234"><br>
+		<input type="text" class= "userId" name="userId" placeholder="qwer1234" required="required"><br>
 		<span class="id_ok">사용 가능한 아이디입니다.</span>
 		<span class="id_not_ok">존재하는 아이디입니다.</span><br>
 		
 		<label>비밀번호</label>
-		<input type="password" name="password" placeholder="zxcv1234"><br><br>
+		<input type="password" name="password" placeholder="zxcv1234" required="required"><br><br>
 		
 		<label>이름</label>
-		<input type="text" name="userName" placeholder="홍길동"><br><br>
+		<input type="text" name="userName" placeholder="홍길동" required="required"><br><br>
 		
 		<label>학번</label>
-		<input type="text" name="classNumber" placeholder="60181234"><br><br>
+		<input type="text" name="classNumber" placeholder="60181234" required="required"><br><br>
 			
 		<label>학년</label>
-		<input type="text" name="userYear" placeholder="4"><br><br>
+		<input type="text" name="userYear" placeholder="4" required="required"><br><br>
 				
-		<input type="button" class="submit" value="가입하기">
+		<input type="submit" id="submit_btn" value="제출">
 		
 	</form>
 <script>
-	
-// 회원가입 버튼
-$(document).ready(function(){
-	// 회원가입 작동
-	$(".submit").click(function(){
-		$("#join_form").attr("action","/edu_user/join");
-		$("#join_form").submit();
-	})
-});
-
 // 아이디 중복 검사
 // 실시간 감지
 $(".userId").on("propertychange change keyup paste input", function(){
@@ -62,10 +52,12 @@ $(".userId").on("propertychange change keyup paste input", function(){
 			console.log("성공 여부 : " + result);
 			if(result != '실패'){
 				$('.id_ok').css("display","inline-block");
-				$('.id_not_ok').css("display", "none");				
+				$('.id_not_ok').css("display", "none");	
+				$('#submit_btn').attr("disabled",false);
 			} else {
 				$('.id_not_ok').css("display","inline-block");
-				$('.id_ok').css("display", "none");				
+				$('.id_ok').css("display", "none");	
+				$('#submit_btn').attr("disabled",true);
 			}
 		}
 	}); 

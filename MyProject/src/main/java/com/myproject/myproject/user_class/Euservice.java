@@ -50,6 +50,11 @@ public class Euservice {
 			return "삽입 실패";
 		}
 	}
+	
+	// 과목 중복 검사
+	public int classChk(String classNumber, int num) {
+		return eumapper.ClassChk(classNumber, num);
+	}
 
 	// 조회에 사용
 	public List<Eu> getUserClass(String num) {
@@ -67,17 +72,16 @@ public class Euservice {
 	
 	
 	
-	
 	// 수정 및 삭제에 사용
-	public List<Eu> getEu(int num) {
+	public List<Eu> getEu(int num, String number) {
 		
-		return eumapper.selectEuByNum(num);
+		return eumapper.selectEuByNum(num, number);
 	}
 	
 	// 수정 및 삭제에 사용
-	public Eu getNum(int num) {
+	public Eu getNum(int num, String number) {
 		
-		return eumapper.selectByNum(num);
+		return eumapper.selectByNum(num, number);
 	}
 		
 	// 과목 성적을 수정하는 로직

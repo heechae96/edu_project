@@ -45,7 +45,7 @@
 			</table>
 			<br>
 			<input type="text" size="3" name="num" value="${lst.num }" placeholder="번호" readonly="readonly">
-			<input type="number" min="0" max="4.5" step="0.5" name="userGrade" value="${lst.userGrade }" required>
+			<input type="number" min="0" max="4.5" step="0.5" name="userGrade" placeholder="성적" required>
 			<input type="submit" value="제출">
 			<button type="button" onclick="location.href='/edu_user/main'">메인으로 돌아가기</button>
 		</form>

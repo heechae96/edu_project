@@ -6,6 +6,11 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<style>
+body{
+	text-align: center;
+}
+</style>
 </head>
 <body>
 	<h1>본인의 정보를 수정하세요</h1>
@@ -14,11 +19,11 @@
 			<!-- 로그인 관련해서 user를 가져온것! -->
 			<input type="hidden" name="num" value="${user.num}" readonly="readonly">
 			
-			<label>비밀번호</label>
-			<input type="password" name="password" placeholder="zxcv1234"><br><br>
+			<label class="pw">비밀번호</label>
+			<input class="pw" type="password" name="password" placeholder="zxcv1234"><br><br>
 			
 			<label>학번</label>
-			<input type="text" name="classNumber" placeholder="60181234"><br><br>
+			<input type="text" name="classNumber" placeholder="60180000"><br><br>
 			
 			<label>이름</label>
 			<input type="text" name="userName" placeholder="홍길동"><br><br>

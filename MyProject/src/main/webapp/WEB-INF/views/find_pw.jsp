@@ -9,6 +9,11 @@
 <title>Insert title here</title>
 <!-- css를 적용한것! -->
 <link href="/resources/css/user/pw.css" rel="stylesheet">
+<style>
+body{
+	text-align: center;
+}
+</style>
 <script type="text/javascript">
 	window.addEventListener("DOMContentLoaded", function() {
 		// 돌아가기

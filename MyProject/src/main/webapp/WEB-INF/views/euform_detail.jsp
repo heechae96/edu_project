@@ -20,8 +20,8 @@
 		var updateBtn = document.querySelector("#update");
 		console.dir(updateBtn);
 		updateBtn.onclick = function(){
-			console.log("/user_class/update?num=${lst.num}&classNuber=${lst.classNumber}");
-			location.href = "/user_class/update?num=${lst.num}&classNuber=${lst.classNumber}";
+			console.log("/user_class/update?num=${lst.num}&class_number=${lst.classNumber}");
+			location.href = "/user_class/update?num=${lst.num}&class_number=${lst.classNumber}";
 		}
 		
 		// 삭제 버튼

@@ -1,0 +1,12 @@
+@charset "UTF-8";
+/* 중복 과목 존재하지 않는경우 */
+.class_ok{
+	color : green;
+	display : none;
+}
+
+/* 중복 과목 존재하는 경우 */
+.class_not_ok{
+	color : red;
+	display : none;
+}

@@ -20,16 +20,11 @@ if(result){
 </head>
 <body>
 	<div id="full">
-		<div id="btn1">
-			<!-- <button id=join>회원가입</button> -->
-			<!-- <button id=login>로그인</button> -->
-			
+		<div id="btn1">			
 			<!-- 로그인 하지 않은 상태 -->
             <c:if test = "${ user == null}">
             	<button type="button" onclick="location.href='/edu_user/login'">로그인</button>
-            	<button type="button" onclick="location.href='/edu_user/join'">회원가입</button>
-                <!-- <span id=login><a href="/edu_user/login">로그인</a></span> -->
-                <!-- <span id=join><a href="/edu_user/join"></a>회원가입</span> -->               
+            	<button type="button" onclick="location.href='/edu_user/join'">회원가입</button>         
             </c:if>
             
             <!-- 로그인한 상태 -->
@@ -38,24 +33,21 @@ if(result){
 	                <span>${user.userName}님</span>
 	                <button type="button" onclick="location.href='/edu_user/logout'">로그아웃</button>
             		<button type="button" onclick="location.href='/edu_user/change?num=${user.num}'">정보수정</button>	                
-	                <!-- <a href="/edu_user/logout">로그아웃</a><br> -->
-	                <!-- <a href="/edu_user/change?num=${user.num}">정보수정</a><br> -->
 	            </div>
-        	</c:if>
-			
+        	</c:if>		
 		</div>
-		<h1>내 미래 직업은?</h1>
-		<div class="logo_img">이미지</div><br>
+		
+		<p>나는 어떤 분야가 잘 맞을까?</p>
+		<h3>직군 테스트</h3>
+		<div class="logo_img">
+			<img class="logo" src="/images/main_img.png">
+		</div><br>
 		<div id="btn2">
 			<c:if test="${ user != null }">   
-	                <button type="button" onclick="location.href='/user_class/add?class_number=${user.classNumber }'">추가</button>
-	                <!-- <a href="/user_class/add?class_number=${user.classNumber }">추가</a><br> -->
+	                <button class="btn" type="button" onclick="location.href='/user_class/add?class_number=${user.classNumber }'"><span class="span_btn">추가하기</span></button><br>
+	                <button class="btn" type="button" onclick="location.href='/user_class/select?class_number=${user.classNumber }'"><span class="span_btn">조회하기</span></button><br>
+					<button class="btn" id=start><span class="span_btn">시작하기</span></button>
 			</c:if>
-			<c:if test="${ user != null }">   
-	                <button type="button" onclick="location.href='/user_class/select?class_number=${user.classNumber }'">조회</button>
-	                <!-- <a href="/user_class/select?class_number=${user.classNumber }">조회</a><br> -->
-			</c:if>
-			<button id=start>시작</button>
 		</div>		
 	</div>
 </body>

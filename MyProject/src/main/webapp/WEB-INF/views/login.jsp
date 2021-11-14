@@ -8,6 +8,15 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<style>
+body{text-align: center;}
+.txt{color: reds;}
+</style>
+<script>
+if(${result == 0 }){
+	alert("아이디 또는 비밀번호를 잘못 입력하였습니다.")
+}
+</script>
 <!-- css를 적용한것! -->
 <link href="/resources/css/user/login.css" rel="stylesheet">
 </head>
@@ -16,14 +25,10 @@
 	<form id="login_form" action="/edu_user/login" method="post">
 	
 		<label>아이디</label>
-		<input type="text" class="userId" name="userId" placeholder="qwer1234"><br><br>
+		<input type="text" class="userId" name="userId" placeholder="qwer1234" required="required"><br><br>
 		
 		<label>비밀번호</label>
-		<input type="text" name="password" placeholder="zxcv1234"><br><br>
-		
-		<c:if test = "${result == 0 }">
-			<div class="login_warning">사용자 ID 또는 비밀번호를 잘못 입력하였습니다.</div><br>			
-		</c:if>
+		<input type="text" name="password" placeholder="zxcv1234" required="required"><br><br>
 				
 		<input type="button" class="pw_btn" value="비밀번호 조회">
 		<input type="button" class="login_btn" value="로그인">	
