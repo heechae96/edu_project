@@ -29,7 +29,7 @@
     width:100%;
     margin: 0 auto;
     margin-bottom: 3%;
-    height:1000px; 
+    height:950px; 
     border:1px solid gray;
     border-radius: 10px;  
 }
@@ -43,6 +43,7 @@
     font-weight: 600;
     border-bottom: 1px solid #75c2ec;
     box-shadow: inset 0 -6px 0 #75c2ec;
+    text-align: center;
 }
 
 .explain-box > .data > .job > .job_title {

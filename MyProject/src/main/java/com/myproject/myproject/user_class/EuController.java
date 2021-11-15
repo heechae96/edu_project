@@ -42,11 +42,11 @@ public class EuController {
 	}
 	
 	@PostMapping("add")
-	public String selectClass(RedirectAttributes re ,Eu eu, User user, UserClass userclass) {
+	public String selectClass(RedirectAttributes re, Eu eu, User user, UserClass userclass) {
 		String result = euservice.insertUser(eu, user, userclass);
 		re.addFlashAttribute("result", result);
 		
-		return "redirect:/edu_user/main";
+		return "redirect:add";
 	}
 	
 	// 과목 중복 검사
@@ -80,6 +80,7 @@ public class EuController {
 		List<Eu> eu = euservice.getUserClass(num);
 		m.addAttribute("eu",eu);
 		System.out.println(eu);
+		//System.out.println(eu.size());
 		
 		List<UserClass> classlist = euservice.getClassName(num);
 		m.addAttribute("classlist", classlist);
@@ -109,9 +110,14 @@ public class EuController {
 	}
 	
 	@PostMapping("delete")
-	public String deleteForm(int num, RedirectAttributes re) {
-		System.out.println("num: "+num);
-		String result = euservice.deleteClass(num);
+	public String deleteForm(int num, String classNumber, RedirectAttributes re) {
+		// ★컨트롤러에서 파라미터는 일치해야 작동.. 서비스에서는 일치하지 않아도 된다★
+		
+		String result = euservice.deleteClass(num, classNumber);
+//		System.out.println("--컨트롤러--");
+//		System.out.println("번호"+num);
+//		System.out.println("학번"+classNumber);
+//		System.out.println("--컨트롤러--");
 		
 		re.addFlashAttribute("result", result);
 		
@@ -155,30 +161,16 @@ public class EuController {
 	public String resultG(Model m, Eu eulist, String num, HttpServletRequest req) {
 		String classNumber = req.getParameter("class_number");
 		num = classNumber;
-		// System.out.println(num);
+		System.out.println(num);
 		List<Eu> eu = euservice.getUserClass(num);
 		m.addAttribute("eu",eu);
-		// System.out.println(eu);
+		System.out.println(eu);
 		
 		// 리스트가 아닌 Map을 통해 키워드와 값으로 가져와서 결과를 보여줌
-		Map<String, String> list = euservice.result(eulist);
+		Map<String, String> list = euservice.result(classNumber);
 		m.addAttribute("list", list);
-		// System.out.println(list);
+		System.out.println(list);
 		
 		return "result";
-	}
-	
-	@PostMapping("result")
-	public String resultP(Eu eu, RedirectAttributes re) {
-		
-		return "redirect:result";
-	}
-	
-	
-	
-	
-	
-	
-	
-		
+	}		
 }

@@ -8,15 +8,21 @@
 <title>결과 조희</title>
 <link href="/resources/css/result.css" rel="stylesheet">
 </head>
-<body>
+<body>	
+<c:if test="${list['top_txt'] == null }">
+	<h1>보여줄 결과가 없습니다.</h1>
+	<h2>과목을 추가하세요.</h2>
+	<button type="button" onclick="location.href='/user_class/add?class_number=${user.classNumber }'">교과목 추가로 돌아가기</button>
+	<button type="button" onclick="location.href='/edu_user/main'">메인으로 돌아가기</button> 
+</c:if>
+<c:if test="${list['top_txt'] != null }" >
 	<main class="con">
 	    <div class="title">
 	      <h3>내 성적에 맞는 직군은??</h3>
 	    </div>
 	   
 	   <div class="sub_title">
-	     <p class="top_txt">${list["top_txt"] }</p>
-	     
+	     <p class="top_txt">${list["top_txt"] }</p>	     
 	     <p class="btm_txt">${list["recommend"] }</p>
 	   </div> 
 	    
@@ -50,5 +56,6 @@
 	     </button>
 	   </div>   
    </main>
+</c:if>
 </body>
 </html>

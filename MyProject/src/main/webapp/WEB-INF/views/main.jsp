@@ -49,7 +49,7 @@ if(result){
 			<c:if test="${ user != null }">   
 	                <button class="btn" type="button" onclick="location.href='/user_class/add?class_number=${user.classNumber }'"><span class="span_btn">과목 추가</span></button><br>
 	                <button class="btn" type="button" onclick="location.href='/user_class/select?class_number=${user.classNumber }'"><span class="span_btn">과목 조회</span></button><br>
-					<button class="btn" type="button" onclick="location.href='/user_class/result?class_number=${user.classNumber }'"><span class="span_btn">결과 조희</span></button>
+					<button class="btn" type="button" onclick="location.href='/user_class/result?class_number=${user.classNumber }'"><span class="span_btn">결과 보기</span></button>
 			</c:if>
 		</div>	
 	</main>	

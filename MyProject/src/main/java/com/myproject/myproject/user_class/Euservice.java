@@ -69,10 +69,7 @@ public class Euservice {
 		List<UserClass> classList = eumapper.selectClassName(num);
 		return classList;
 	}
-	
-	
-	
-	
+		
 	
 	// 수정 및 삭제에 사용
 	public List<Eu> getEu(int num, String number) {
@@ -98,9 +95,10 @@ public class Euservice {
 		}
 	}
 	
+	// ★컨트롤러에서 파라미터는 일치해야 작동.. 서비스에서는 일치하지 않아도 된다★
 	// 과목을 삭제하는 로직
-	public String deleteClass(int num) {
-		int row = eumapper.deleteClass(num);
+	public String deleteClass(int numb, String classN) {
+		int row = eumapper.deleteClass(numb, classN);
 		
 		if(row > 0) {
 			return "삭제 성공";
@@ -109,11 +107,10 @@ public class Euservice {
 		}
 		
 	}
-	
-	
-	
+		
 	// 결과 조회
-	public Map<String,String> result(Eu eu) {
+	public Map<String,String> result(String num) {
+		List<Eu> eu = eumapper.showClassByNum(num);
 		
 		int job_it = 0;		// IT 개수
 	    double job_it_score = 0;	// IT 점수
@@ -123,211 +120,225 @@ public class Euservice {
 	    
 		int job_iac = 0;	// 정보통신 개수
 	    double job_iac_score = 0;	// 정보통신 점수
+		
+		int size = eu.size();
+		//System.out.println("사이즈: "+size);
+		//System.out.println("ex1: "+eu.get(0).getNum());
+		//System.out.println("ex1: "+eu.get(0).getUserGrade());
+		
+		for(int i=0; i<size; i++) {
+			// 개수, 평균
+		    if(eu.get(i).getNum() == 12) {
+		    	// 파이썬 프로그래밍
+		    	job_it += 1;
+		    	job_it_score += Double.valueOf(eu.get(i).getUserGrade());
+		    }else if(eu.get(i).getNum() == 13) {
+		    	// 데이터 구조
+		    	job_data += 1;
+		    	job_data_score += Double.valueOf(eu.get(i).getUserGrade());
+		    }else if(eu.get(i).getNum() == 14) {
+		    	// 자바프로그래밍
+		    	job_it += 1;
+		    	job_it_score += Double.valueOf(eu.get(i).getUserGrade());
+		    }else if(eu.get(i).getNum() == 15) {
+		    	// 기계학습개론
+		    	job_data += 1;
+		    	job_data_score += Double.valueOf(eu.get(i).getUserGrade());
+		    }else if(eu.get(i).getNum() == 16) {
+		    	// 기계학습응용
+		    	job_data += 1;
+		    	job_data_score += Double.valueOf(eu.get(i).getUserGrade());
+		    }else if(eu.get(i).getNum() == 17) {
+		    	// 데이터마이닝 및 시각화
+		    	job_data += 1;
+		    	job_data_score += Double.valueOf(eu.get(i).getUserGrade());
+		    }else if(eu.get(i).getNum() == 18) {
+		    	// 데이터베이스
+		    	job_data += 1;
+		    	job_data_score += Double.valueOf(eu.get(i).getUserGrade());
+		    }else if(eu.get(i).getNum() == 19) {
+		    	// 알고리즘
+		    	job_it += 1;
+		    	job_it_score += Double.valueOf(eu.get(i).getUserGrade());
+		    	job_data += 1;
+		    	job_data_score += Double.valueOf(eu.get(i).getUserGrade());
+		    }else if(eu.get(i).getNum() == 20) {
+		    	// 빅데이터분석
+		    	job_data += 1;
+		    	job_data_score += Double.valueOf(eu.get(i).getUserGrade());
+		    }else if(eu.get(i).getNum() == 21) {
+		    	// 사물인터넷기초
+		    	job_iac += 1;
+		    	job_iac_score += Double.valueOf(eu.get(i).getUserGrade());
+		    }else if(eu.get(i).getNum() == 22) {
+		    	// 회로이론
+		    	job_iac += 1;
+		    	job_iac_score += Double.valueOf(eu.get(i).getUserGrade());
+		    }else if(eu.get(i).getNum() == 23) {
+		    	// 컴퓨터네트워크
+		    	job_iac += 1;
+		    	job_iac_score += Double.valueOf(eu.get(i).getUserGrade());
+		    }else if(eu.get(i).getNum() == 24) {
+		    	// 전자회로
+		    	job_iac += 1;
+		    	job_iac_score += Double.valueOf(eu.get(i).getUserGrade());
+		    }else if(eu.get(i).getNum() == 25) {
+		    	// 마이크로프로세서
+		    	job_iac += 1;
+		    	job_iac_score += Double.valueOf(eu.get(i).getUserGrade());
+		    }else if(eu.get(i).getNum() == 26) {
+		    	// 전자기학
+		    	job_iac += 1;
+		    	job_iac_score += Double.valueOf(eu.get(i).getUserGrade());
+		    }else if(eu.get(i).getNum() == 27) {
+		    	// 임베디드시스템
+		    	job_iac += 1;
+		    	job_iac_score += Double.valueOf(eu.get(i).getUserGrade());
+		    }else if(eu.get(i).getNum() == 28) {
+		    	// 컴퓨터구조
+		    	job_iac += 1;
+		    	job_iac_score += Double.valueOf(eu.get(i).getUserGrade());
+		    }else if(eu.get(i).getNum() == 29) {
+		    	// 통신이론
+		    	job_iac += 1;
+		    	job_iac_score += Double.valueOf(eu.get(i).getUserGrade());
+		    }else if(eu.get(i).getNum() == 30) {
+		    	// 확률 및 랜덤프로세스
+		    	job_iac += 1;
+		    	job_iac_score += Double.valueOf(eu.get(i).getUserGrade());
+		    }else if(eu.get(i).getNum() == 31) {
+		    	// 센서기반 사물인터넷
+		    	job_iac += 1;
+		    	job_iac_score += Double.valueOf(eu.get(i).getUserGrade());
+		    }else if(eu.get(i).getNum() == 32) {
+		    	// IoT보안
+		    	job_it += 1;
+		    	job_it_score += Double.valueOf(eu.get(i).getUserGrade());
+		    }else if(eu.get(i).getNum() == 33) {
+		    	// 디지털통신
+		    	job_iac += 1;
+		    	job_iac_score += Double.valueOf(eu.get(i).getUserGrade());
+		    }else if(eu.get(i).getNum() == 34) {
+		    	// 통신네트워크
+		    	job_iac += 1;
+		    	job_iac_score += Double.valueOf(eu.get(i).getUserGrade());
+		    }else if(eu.get(i).getNum() == 35) {
+		    	// 모바일 프로그래밍
+		    	job_it += 1;
+		    	job_it_score += Double.valueOf(eu.get(i).getUserGrade());
+		    }else if(eu.get(i).getNum() == 36) {
+		    	// 차세대이동통신
+		    	job_iac += 1;
+		    	job_iac_score += Double.valueOf(eu.get(i).getUserGrade());
+		    }else if(eu.get(i).getNum() == 37) {
+		    	// 초고속광네트워크
+		    	job_iac += 1;
+		    	job_iac_score += Double.valueOf(eu.get(i).getUserGrade());
+		    }else if(eu.get(i).getNum() == 38) {
+		    	// 사물인터넷SoC
+		    	job_iac += 1;
+		    	job_iac_score += Double.valueOf(eu.get(i).getUserGrade());
+		    }else if(eu.get(i).getNum() == 39) {
+		    	// 무선네트워크
+		    	job_iac += 1;
+		    	job_iac_score += Double.valueOf(eu.get(i).getUserGrade());
+		    }else if(eu.get(i).getNum() == 40) {
+		    	// 정보통신응용프로그래밍
+		    	job_it += 1;
+		    	job_it_score += Double.valueOf(eu.get(i).getUserGrade());
+		    }else if(eu.get(i).getNum() == 41) {
+		    	// 디지털논리회로
+		    	job_iac += 1;
+		    	job_iac_score += Double.valueOf(eu.get(i).getUserGrade());
+		    }else if(eu.get(i).getNum() == 42) {
+		    	// 정보보안
+		    	job_it += 1;
+		    	job_it_score += Double.valueOf(eu.get(i).getUserGrade());
+		    }else if(eu.get(i).getNum() == 43) {
+		    	// 신호 및 시스템
+		    	job_iac += 1;
+		    	job_iac_score += Double.valueOf(eu.get(i).getUserGrade());
+		    }else if(eu.get(i).getNum() == 43) {
+		    	// IT신기술세미나1
+		    	job_it += 1;
+		    	job_it_score += Double.valueOf(eu.get(i).getUserGrade());
+		    }else if(eu.get(i).getNum() == 45) {
+		    	// IT신기술세미나2
+		    	job_it += 1;
+		    	job_it_score += Double.valueOf(eu.get(i).getUserGrade());
+		    }else if(eu.get(i).getNum() == 46) {
+		    	// 디지털신호처리
+		    	job_iac += 1;
+		    	job_iac_score += Double.valueOf(eu.get(i).getUserGrade());
+		    }else if(eu.get(i).getNum() == 47) {
+		    	// 캡스톤디자인1
+		    	job_it += 1;
+		    	job_it_score += Double.valueOf(eu.get(i).getUserGrade());
+		    	job_data += 1;
+		    	job_data_score += Double.valueOf(eu.get(i).getUserGrade());
+		    	job_iac += 1;
+		    	job_iac_score += Double.valueOf(eu.get(i).getUserGrade());
+		    }else if(eu.get(i).getNum() == 48) {
+		    	// 캡스톤디자인2
+		    	job_it += 1;
+		    	job_it_score += Double.valueOf(eu.get(i).getUserGrade());
+		    	job_data += 1;
+		    	job_data_score += Double.valueOf(eu.get(i).getUserGrade());
+		    	job_iac += 1;
+		    	job_iac_score += Double.valueOf(eu.get(i).getUserGrade());
+		    }else if(eu.get(i).getNum() == 49) {
+		    	// 인터넷프로그래밍
+		    	job_it += 1;
+		    	job_it_score += Double.valueOf(eu.get(i).getUserGrade());
+		    }else if(eu.get(i).getNum() == 50) {
+		    	// ICT창업
+		    	job_it += 1;
+		    	job_it_score += Double.valueOf(eu.get(i).getUserGrade());
+		    	job_data += 1;
+		    	job_data_score += Double.valueOf(eu.get(i).getUserGrade());
+		    	job_iac += 1;
+		    	job_iac_score += Double.valueOf(eu.get(i).getUserGrade());
+		    }else if(eu.get(i).getNum() == 51) {
+		    	// 영상처리
+		    	job_iac += 1;
+		    	job_iac_score += Double.valueOf(eu.get(i).getUserGrade());
+		    }else if(eu.get(i).getNum() == 52) {
+		    	// 산학협력
+		    	job_it += 1;
+		    	job_it_score += Double.valueOf(eu.get(i).getUserGrade());
+		    	job_data += 1;
+		    	job_data_score += Double.valueOf(eu.get(i).getUserGrade());
+		    	job_iac += 1;
+		    	job_iac_score += Double.valueOf(eu.get(i).getUserGrade());
+		    }
+		}
 	    
-	    double it_avg = (job_it_score / job_it);		// IT 평균
+		double it_avg = (job_it_score / job_it);		// IT 평균
 		double data_avg = (job_data_score / job_data);	// 데이터처리 평균
 		double iac_avg = (job_iac_score / job_iac);	    // 정보통신 평균
-	    
-	    // 개수, 평균
-	    if(eu.getNum() == 12) {
-	    	// 파이썬 프로그래밍
-	    	job_it += 1;
-	    	job_it_score += eu.getUserGrade();
-	    }else if(eu.getNum() == 13) {
-	    	// 데이터 구조
-	    	job_data += 1;
-	    	job_data_score += eu.getUserGrade();
-	    }else if(eu.getNum() == 14) {
-	    	// 자바프로그래밍
-	    	job_it += 1;
-	    	job_it_score += eu.getUserGrade();
-	    }else if(eu.getNum() == 15) {
-	    	// 기계학습개론
-	    	job_data += 1;
-	    	job_data_score += eu.getUserGrade();
-	    }else if(eu.getNum() == 16) {
-	    	// 기계학습응용
-	    	job_data += 1;
-	    	job_data_score += eu.getUserGrade();
-	    }else if(eu.getNum() == 17) {
-	    	// 데이터마이닝 및 시각화
-	    	job_data += 1;
-	    	job_data_score += eu.getUserGrade();
-	    }else if(eu.getNum() == 18) {
-	    	// 데이터베이스
-	    	job_data += 1;
-	    	job_data_score += eu.getUserGrade();
-	    }else if(eu.getNum() == 19) {
-	    	// 알고리즘
-	    	job_it += 1;
-	    	job_it_score += eu.getUserGrade();
-	    	job_data += 1;
-	    	job_data_score += eu.getUserGrade();
-	    }else if(eu.getNum() == 20) {
-	    	// 빅데이터분석
-	    	job_data += 1;
-	    	job_data_score += eu.getUserGrade();
-	    }else if(eu.getNum() == 21) {
-	    	// 사물인터넷기초
-	    	job_iac += 1;
-	    	job_iac_score += eu.getUserGrade();
-	    }else if(eu.getNum() == 22) {
-	    	// 회로이론
-	    	job_iac += 1;
-	    	job_iac_score += eu.getUserGrade();
-	    }else if(eu.getNum() == 23) {
-	    	// 컴퓨터네트워크
-	    	job_iac += 1;
-	    	job_iac_score += eu.getUserGrade();
-	    }else if(eu.getNum() == 24) {
-	    	// 전자회로
-	    	job_iac += 1;
-	    	job_iac_score += eu.getUserGrade();
-	    }else if(eu.getNum() == 25) {
-	    	// 마이크로프로세서
-	    	job_iac += 1;
-	    	job_iac_score += eu.getUserGrade();
-	    }else if(eu.getNum() == 26) {
-	    	// 전자기학
-	    	job_iac += 1;
-	    	job_iac_score += eu.getUserGrade();
-	    }else if(eu.getNum() == 27) {
-	    	// 임베디드시스템
-	    	job_iac += 1;
-	    	job_iac_score += eu.getUserGrade();
-	    }else if(eu.getNum() == 28) {
-	    	// 컴퓨터구조
-	    	job_iac += 1;
-	    	job_iac_score += eu.getUserGrade();
-	    }else if(eu.getNum() == 29) {
-	    	// 통신이론
-	    	job_iac += 1;
-	    	job_iac_score += eu.getUserGrade();
-	    }else if(eu.getNum() == 30) {
-	    	// 확률 및 랜덤프로세스
-	    	job_iac += 1;
-	    	job_iac_score += eu.getUserGrade();
-	    }else if(eu.getNum() == 31) {
-	    	// 센서기반 사물인터넷
-	    	job_iac += 1;
-	    	job_iac_score += eu.getUserGrade();
-	    }else if(eu.getNum() == 32) {
-	    	// IoT보안
-	    	job_it += 1;
-	    	job_it_score += eu.getUserGrade();
-	    }else if(eu.getNum() == 33) {
-	    	// 디지털통신
-	    	job_iac += 1;
-	    	job_iac_score += eu.getUserGrade();
-	    }else if(eu.getNum() == 34) {
-	    	// 통신네트워크
-	    	job_iac += 1;
-	    	job_iac_score += eu.getUserGrade();
-	    }else if(eu.getNum() == 35) {
-	    	// 모바일 프로그래밍
-	    	job_it += 1;
-	    	job_it_score += eu.getUserGrade();
-	    }else if(eu.getNum() == 36) {
-	    	// 차세대이동통신
-	    	job_iac += 1;
-	    	job_iac_score += eu.getUserGrade();
-	    }else if(eu.getNum() == 37) {
-	    	// 초고속광네트워크
-	    	job_iac += 1;
-	    	job_iac_score += eu.getUserGrade();
-	    }else if(eu.getNum() == 38) {
-	    	// 사물인터넷SoC
-	    	job_iac += 1;
-	    	job_iac_score += eu.getUserGrade();
-	    }else if(eu.getNum() == 39) {
-	    	// 무선네트워크
-	    	job_iac += 1;
-	    	job_iac_score += eu.getUserGrade();
-	    }else if(eu.getNum() == 40) {
-	    	// 정보통신응용프로그래밍
-	    	job_it += 1;
-	    	job_it_score += eu.getUserGrade();
-	    }else if(eu.getNum() == 41) {
-	    	// 디지털논리회로
-	    	job_iac += 1;
-	    	job_iac_score += eu.getUserGrade();
-	    }else if(eu.getNum() == 42) {
-	    	// 정보보안
-	    	job_it += 1;
-	    	job_it_score += eu.getUserGrade();
-	    }else if(eu.getNum() == 43) {
-	    	// 신호 및 시스템
-	    	job_iac += 1;
-	    	job_iac_score += eu.getUserGrade();
-	    }else if(eu.getNum() == 43) {
-	    	// IT신기술세미나1
-	    	job_it += 1;
-	    	job_it_score += eu.getUserGrade();
-	    }else if(eu.getNum() == 45) {
-	    	// IT신기술세미나2
-	    	job_it += 1;
-	    	job_it_score += eu.getUserGrade();
-	    }else if(eu.getNum() == 46) {
-	    	// 디지털신호처리
-	    	job_iac += 1;
-	    	job_iac_score += eu.getUserGrade();
-	    }else if(eu.getNum() == 47) {
-	    	// 캡스톤디자인1
-	    	job_it += 1;
-	    	job_it_score += eu.getUserGrade();
-	    	job_data += 1;
-	    	job_data_score += eu.getUserGrade();
-	    	job_iac += 1;
-	    	job_iac_score += eu.getUserGrade();
-	    }else if(eu.getNum() == 48) {
-	    	// 캡스톤디자인2
-	    	job_it += 1;
-	    	job_it_score += eu.getUserGrade();
-	    	job_data += 1;
-	    	job_data_score += eu.getUserGrade();
-	    	job_iac += 1;
-	    	job_iac_score += eu.getUserGrade();
-	    }else if(eu.getNum() == 49) {
-	    	// 인터넷프로그래밍
-	    	job_it += 1;
-	    	job_it_score += eu.getUserGrade();
-	    }else if(eu.getNum() == 50) {
-	    	// ICT창업
-	    	job_it += 1;
-	    	job_it_score += eu.getUserGrade();
-	    	job_data += 1;
-	    	job_data_score += eu.getUserGrade();
-	    	job_iac += 1;
-	    	job_iac_score += eu.getUserGrade();
-	    }else if(eu.getNum() == 51) {
-	    	// 영상처리
-	    	job_iac += 1;
-	    	job_iac_score += eu.getUserGrade();
-	    }else if(eu.getNum() == 52) {
-	    	// 산학협력
-	    	job_it += 1;
-	    	job_it_score += eu.getUserGrade();
-	    	job_data += 1;
-	    	job_data_score += eu.getUserGrade();
-	    	job_iac += 1;
-	    	job_iac_score += eu.getUserGrade();
-	    }
-	    
+		
+		System.out.println("IT 개수: "+job_it);
+		System.out.println("데이터 개수: "+job_data);
+		System.out.println("정보통신 개수: "+job_iac);
+		
+	    System.out.println("IT 평균: "+it_avg);
+		System.out.println("데이터 평균: "+data_avg);
+		System.out.println("정보통신 평균: "+iac_avg);
 	   
 	    // 결과
-	    String recommend = "";	
-	    String top_txt = "";	
-	    String kind = "";		
-	    String job_list1 = "";
-	    String job_list2 = "";	
-	    String job_list3 = "";	
-	    String job_list4 = "";	
-	    String job_list5 = "";	
-	    String job_ability1 = "";
-	    String job_ability2 = "";
-	    String job_ability3 = "";
-	    String job_ability4 = "";
-	    String job_ability5 = "";
+	    String recommend = null;	
+	    String top_txt = null;	
+	    String kind = null;		
+	    String job_list1 = null;
+	    String job_list2 = null;	
+	    String job_list3 = null;	
+	    String job_list4 = null;	
+	    String job_list5 = null;	
+	    String job_ability1 = null;
+	    String job_ability2 = null;
+	    String job_ability3 = null;
+	    String job_ability4 = null;
+	    String job_ability5 = null;
 	    
 	    if (it_avg >= data_avg && it_avg >= iac_avg) {
             recommend = "IT전문인력";
@@ -357,7 +368,7 @@ public class Euservice {
             job_ability3 = "데이터 비주얼라이저 : 데이터를 시각화하여 조직 또는 상사가 이해하기 쉽게 변환하는 역량이 필요합니다.";
             job_ability4 = "프로덕트 매니저 : 필요한 분석과 데이터 정의 및 분석체계의 구체화를 계획하고, 데이터 분석의 결과를 조직의 상급 관리자에게 설명하는 능력이 필요합니다.";
             job_ability5 = "데이터 과학자 : 데이터 기술로 다양한 분야에서 새로운 비즈니스 또는 제품의 개발 기회 발굴 및 예산과 기획을 포함하는 프로젝트 관리 및 자문 능력이 필요합니다.";
-	    }else {
+	    }else if (iac_avg >= it_avg && iac_avg >= data_avg) {
             recommend = "정보통신전문인력";
             top_txt = "내 손으로 기가지니를!?";
             kind = "IAC";
@@ -388,9 +399,6 @@ public class Euservice {
 	    map.put("job_ability[3]", job_ability3);
 	    map.put("job_ability[4]", job_ability4);
 	    map.put("job_ability[5]", job_ability5);
-	    
-	    System.out.println("서비스단 출력: "+map);
-	    
 	    
 	    return map;
 	}

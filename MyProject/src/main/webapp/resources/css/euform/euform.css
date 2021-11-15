@@ -1,0 +1,40 @@
+@charset "UTF-8";
+/* 중복 과목 존재하지 않는경우 */
+.class_ok{
+	color : green;
+	display : none;
+}
+
+/* 중복 과목 존재하는 경우 */
+.class_not_ok{
+	color : red;
+	display : none;
+}
+
+.con {
+	width: 600px;
+    margin: auto;
+    height: 1300px;
+    border: 1px solid gray;
+    border-radius: 10px;  
+    text-align: center;
+}
+
+h2{
+	color: navy;
+}
+
+table{
+	border: 5px solid gray;
+	text-align: center;
+	margin: 0 auto;
+}
+
+.t1{
+	background-color: navy;
+	color: white;
+}
+
+.classNum{
+	margin-bottom: 1%;
+}

@@ -59,13 +59,7 @@ public interface EuMapper {
 	public int updateClass(Eu eu);
 	
 	// 과목코드를 통해 과목을 삭제
-	@Delete("delete from user_class where num=#{num}")
-	public int deleteClass(int num);
+	@Delete("delete from user_class where num=#{num} and class_number=#{classNumber}")
+	public int deleteClass(@Param("num")int num, @Param("classNumber")String classNumber);
 	
-	
-// 결과에 쓰일 로직
-
-	
-
-
 }

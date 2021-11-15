@@ -6,6 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>교과목 상세보기</title>
+<link href="/resources/css/euform/euform_detail.css" rel="stylesheet">
 <script type="text/javascript">	
 
 	var result = ${not empty result}
@@ -34,12 +35,19 @@
 			form.setAttribute("method", "post");
 			form.setAttribute("action", "/user_class/delete");
 			
-			var idField = document.createElement("input");
-			idField.setAttribute("type", "hidden");
-			idField.setAttribute("name", "num");
-			idField.setAttribute("value", ${lst.num });
+			var idField1 = document.createElement("input");
+			idField1.setAttribute("type", "hidden");
+			idField1.setAttribute("name", "num");
+			idField1.setAttribute("value", ${lst.num });
+			
+			
+			var idField2 = document.createElement("input");
+			idField2.setAttribute("type", "hidden");
+			idField2.setAttribute("name", "classNumber");
+			idField2.setAttribute("value", ${lst.classNumber });
 					
-			form.appendChild(idField);
+			form.appendChild(idField1);
+			form.appendChild(idField2);
 			document.body.appendChild(form);
 			form.submit();
 		})
@@ -48,8 +56,9 @@
 </script>
 </head>
 <body>
-	<h1>교과목 수정 및 삭제 페이지</h1>
-		<table border="1" style="text-align:center">
+	<main class="con">
+		<h1>교과목 상세보기</h1>
+		<table>
 			<thead>
 				<tr>
 					<th>강좌번호</th>
@@ -63,13 +72,10 @@
 						<td>${list.userGrade }</td>
 					</tr>
 				</c:forEach>
-				<tr>
-					<td colspan="2">
-						<button id="update">수정</button>
-						<button id="delete">삭제</button>
-					</td>
-				</tr>
 			</tbody>
-		</table>	 	
+		</table>
+		<button id="update">수정</button>
+		<button id="delete">삭제</button>
+	</main>	 	
 </body>
 </html>

@@ -1,0 +1,28 @@
+@charset "UTF-8";
+.con {
+	width: 500px;
+    margin: auto;
+    height: 1350px;
+    border: 1px solid gray;
+    border-radius: 10px;  
+    text-align: center;
+}
+h2{
+	color: navy;
+}
+.t1{
+	text-align: center;
+	margin: 0 auto;
+}
+.t2{
+	border: 3px solid gray;
+	text-align: center;
+	margin: 0 auto;
+}
+.td1{
+	background-color: navy;
+	color: white;
+}
+.t2 th, .t2 td{
+	border: 1px solid gray;
+}

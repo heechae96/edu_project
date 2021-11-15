@@ -1,0 +1,42 @@
+@charset "UTF-8";
+.con{
+	width: 600px;
+    margin: 100px auto;
+    height: 900px;
+    border: 1px solid gray;
+    border-radius: 10px;  
+    text-align: center;
+}
+
+h2{
+	color: navy;
+}
+
+.t1{
+	text-align: center;
+	position: absolute;
+	margin: 21px 0px 0px 53px;
+}
+
+.t2{
+	text-align: center;
+	position: absolute;
+	margin-left: 235px;
+}
+
+.btn{
+	margin-top: 700px;
+}
+
+.table_box{
+	width: 400px;
+    margin-left: 100px;
+    height: 700px;
+    border: 5px solid gray;
+    border-radius: 10px; 
+    position: absolute; 
+}
+
+.td2{
+	background-color: #D9D9FD;
+}
