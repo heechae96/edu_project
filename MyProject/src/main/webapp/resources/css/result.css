@@ -1,4 +1,17 @@
 @charset "UTF-8";
+ 
+.con_null{
+	width: 500px;
+    margin: 100px auto;
+    border:1px solid gray;
+    border-radius: 10px;
+    text-align: center;
+    height: 200px; 
+}
+
+.con_null h2{
+	color: navy;
+}
   
 .con {
     width: 500px;

@@ -122,6 +122,7 @@ public class EuController {
 		re.addFlashAttribute("result", result);
 		
 		return "redirect:/edu_user/main";
+			
 	}
 	
 	@GetMapping("update")

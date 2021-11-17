@@ -1,4 +1,14 @@
 @charset "UTF-8";
+
+.con_null{
+	width: 600px;
+    margin: 100px auto;
+    height: 200px;
+    border: 1px solid gray;
+    border-radius: 10px;  
+    text-align: center;
+}
+
 .con{
 	width: 600px;
     margin: 100px auto;
@@ -39,4 +49,9 @@ h2{
 
 .td2{
 	background-color: #D9D9FD;
+}
+
+a{
+	text-decoration: none;
+	color: inherit;
 }

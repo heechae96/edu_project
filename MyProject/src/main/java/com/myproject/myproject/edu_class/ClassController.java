@@ -97,20 +97,4 @@ public class ClassController {
 		return "redirect:list";
 	}
 	
-	@GetMapping("add")
-	public String selectClass(Model m) {
-		
-		// 여기에서 서비스를 이용하여 화면에 보여줄 데이터를 가져온다.
-		List<UserClass> classlist = classService.selectClass();
-		
-		// 화면에 보내기 위해 모델에 넣어준다.
-		m.addAttribute("classlist", classlist);
-		
-		System.out.println(classlist);
-		
-		return "classform";
-	}
-	
-	
-	
 }

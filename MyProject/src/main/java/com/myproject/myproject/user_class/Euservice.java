@@ -47,9 +47,9 @@ public class Euservice {
 		int rows = eumapper.insertdb(indexnum, classNumber, num, grade);
 		
 		if(rows > 0) {
-			return "삽입 성공";
+			return "추가 성공";
 		}else {
-			return "삽입 실패";
+			return "추가 실패";
 		}
 	}
 	

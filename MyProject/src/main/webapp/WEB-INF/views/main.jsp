@@ -19,25 +19,50 @@ if(result){
 <link href="/resources/css/user/main.css" rel="stylesheet">
 </head>
 <body>
-	<div id="full">
-		<div id="btn1">			
-			<!-- 로그인 하지 않은 상태 -->
-	           <c:if test = "${ user == null}">
-	           	<div class="login_fail_area">
-		           	<button type="button" onclick="location.href='/edu_user/login'">로그인</button>
-		           	<button type="button" onclick="location.href='/edu_user/join'">회원가입</button>         
-	           	</div>
-	           </c:if>
-	           
-	           <!-- 로그인한 상태 -->
-	           <c:if test="${ user != null }">
-	            <div class="login_success_area">
-	                <span>${user.userName}님</span>
-	                <button type="button" onclick="location.href='/edu_user/logout'">로그아웃</button>
-	           		<button type="button" onclick="location.href='/edu_user/change?num=${user.num}'">정보수정</button>	                
-	            </div>
-	       	</c:if>		
-		</div>
+<div id="full">
+	<div id="btn1">			
+		<!-- 로그인 하지 않은 상태 -->
+	    <c:if test = "${ user == null}">
+	    	<div class="login_fail_area">
+	     	<span>
+	     		<a href="/edu_user/login">
+	     			로그인
+	     			<img class="icon" alt="login" src="/images/login.png">
+	     		</a>
+	     	</span>
+	     	<span>
+	     		<a href="/edu_user/join">
+	     			회원가입
+	     			<img class="icon" alt="join" src="/images/join.png">
+	     		</a>
+	     	</span>
+	    	</div>
+	    </c:if>
+	          
+        <!-- 로그인한 상태 -->
+        <c:if test="${ user != null }">
+         <div class="login_success_area">
+             <span>
+         		<a href="/edu_user/logout">
+         			로그아웃
+         			<img class="icon" alt="logout" src="/images/logout.png">
+         		</a>
+         	</span>
+         	<span>
+         		<a href="/edu_user/change?num=${user.num}">
+         			정보수정
+         			<img class="icon" alt="logout" src="/images/join.png">
+         		</a>
+         	</span>
+         	<span>
+         		<a href="/edu_user/request?num=${user.num}">
+         			문의하기
+         			<img class="icon" alt="request" src="/images/request.png">
+         		</a>
+         	</span>
+         </div>
+    	</c:if>		
+	</div>
 		
 	<main class="con">
 		<p>나는 어떤 분야가 잘 맞을까?</p>
@@ -53,6 +78,6 @@ if(result){
 			</c:if>
 		</div>	
 	</main>	
-	</div>	
+</div>	
 </body>
 </html>

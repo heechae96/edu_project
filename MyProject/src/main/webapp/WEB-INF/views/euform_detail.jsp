@@ -8,51 +8,44 @@
 <title>교과목 상세보기</title>
 <link href="/resources/css/euform/euform_detail.css" rel="stylesheet">
 <script type="text/javascript">	
-
-	var result = ${not empty result}
+window.addEventListener("DOMContentLoaded",function(){		
 	
-	if(result){
-		alert("${result}");
+	// 수정 버튼
+	var updateBtn = document.querySelector("#update");
+	console.dir(updateBtn);
+	updateBtn.onclick = function(){
+		console.log("/user_class/update?num=${lst.num}&class_number=${lst.classNumber}");
+		location.href = "/user_class/update?num=${lst.num}&class_number=${lst.classNumber}";
 	}
 	
-	window.addEventListener("DOMContentLoaded",function(){		
+	// 삭제 버튼
+	var deleteBtn = document.querySelector("#delete");
+	console.dir(deleteBtn);
+	// post방식으로 요청해보자
+	deleteBtn.addEventListener("click",function(){
+		var form = document.createElement("form");
+		form.setAttribute("charset", "utf-8");
+		form.setAttribute("method", "post");
+		form.setAttribute("action", "/user_class/delete");
 		
-		// 수정 버튼
-		var updateBtn = document.querySelector("#update");
-		console.dir(updateBtn);
-		updateBtn.onclick = function(){
-			console.log("/user_class/update?num=${lst.num}&class_number=${lst.classNumber}");
-			location.href = "/user_class/update?num=${lst.num}&class_number=${lst.classNumber}";
-		}
+		var idField1 = document.createElement("input");
+		idField1.setAttribute("type", "hidden");
+		idField1.setAttribute("name", "num");
+		idField1.setAttribute("value", ${lst.num });
 		
-		// 삭제 버튼
-		var deleteBtn = document.querySelector("#delete");
-		console.dir(deleteBtn);
-		// post방식으로 요청해보자
-		deleteBtn.addEventListener("click",function(){
-			var form = document.createElement("form");
-			form.setAttribute("charset", "utf-8");
-			form.setAttribute("method", "post");
-			form.setAttribute("action", "/user_class/delete");
-			
-			var idField1 = document.createElement("input");
-			idField1.setAttribute("type", "hidden");
-			idField1.setAttribute("name", "num");
-			idField1.setAttribute("value", ${lst.num });
-			
-			
-			var idField2 = document.createElement("input");
-			idField2.setAttribute("type", "hidden");
-			idField2.setAttribute("name", "classNumber");
-			idField2.setAttribute("value", ${lst.classNumber });
-					
-			form.appendChild(idField1);
-			form.appendChild(idField2);
-			document.body.appendChild(form);
-			form.submit();
-		})
 		
-	});
+		var idField2 = document.createElement("input");
+		idField2.setAttribute("type", "hidden");
+		idField2.setAttribute("name", "classNumber");
+		idField2.setAttribute("value", ${lst.classNumber });
+				
+		form.appendChild(idField1);
+		form.appendChild(idField2);
+		document.body.appendChild(form);
+		form.submit();
+	})
+	
+});
 </script>
 </head>
 <body>
